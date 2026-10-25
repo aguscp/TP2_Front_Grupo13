@@ -27,7 +27,7 @@
 | # | Integrante | GitHub | Perfil en la app | Responsabilidad principal |
 |---|------------|--------|------------------|---------------------------|
 | 01 | Sebastián Sarango | [@DevJaSeb](https://github.com/DevJaSeb) | `/perfil/sebas` | Perfil propio, componente interactivo `SkillBars` con manejo de estado, corrección de compatibilidad de Vite con Node.js y ocultamiento de scrollbar en sidebar |
-| 02 | Valentina Sánchez | [@ValentinaBS](https://github.com/ValentinaBS) | `/perfil/valen` | _(completar)_ |
+| 02 | Valentina Sánchez | [@ValentinaBS](https://github.com/ValentinaBS) | `/perfil/valen` | Perfil propio con la interacción `RandomPick`. Rediseño de la cartelera: tarjetas con la misma altura y detalle de cada banda en un modal (`BandModal`, con `<dialog>`). Revisión responsive y de accesibilidad (foco, cierre con Escape, atributos `aria`). Actualización del árbol de componentes y entrada de la bitácora |
 | 03 | Agustín Cisneros | [@aguscp](https://github.com/aguscp) | `/perfil/agus` | Repositorio, base en React (rutas, sidebar y layout), cartelera con JSON, API de clima y árbol de componentes |
 | 04 | Celina Tarn | [@celina-web](https://github.com/celina-web) | `/perfil/celi` | _(completar)_ |
 
@@ -41,7 +41,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 |---------|------|-----------|
 | **Inicio** | `/` | Presentación del equipo, tarjetas que se dan vuelta con un resumen de cada integrante y botón de perfil al azar. |
 | **Perfiles** | `/perfil/:slug` | Un mismo componente (`Profile`) para los 4 integrantes, con los datos de `members.json`. Cada perfil tiene su propia interacción. |
-| **Cartelera** | `/cartelera` | 25 bandas de `lineup.json` con búsqueda por texto, filtro por género, mensaje de "sin resultados", botón para ver todas y detalle desplegable en cada tarjeta. |
+| **Cartelera** | `/cartelera` | 25 bandas de `lineup.json` con búsqueda por texto, filtro por género, mensaje de "sin resultados", botón para ver todas y detalle de cada banda en una ventana modal. |
 | **Clima del festival** | `/clima` | Clima actual y pronóstico de 3 días de cada sede del tour, desde la API de Open-Meteo, con estados de carga y error y botones para actualizar y reintentar. |
 | **Árbol de componentes** | `/arbol` | Jerarquía real de componentes de la app, con ramas que se expanden y contraen. |
 | **Bitácora** | `/bitacora` | Entradas del proceso con forma de ticket, desplegables y filtro por TP. Sigue la bitácora del TP1. |
@@ -63,7 +63,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 
 - **React 19** con componentes funcionales y hooks (`useState`, `useEffect`).
 - **React Router 7** para la navegación entre secciones.
-- **Vite 6** como entorno de desarrollo y build (compatible con Node.js 18+).
+- **Vite 6** como entorno de desarrollo y build.
 - **CSS propio**, un archivo por sección, con la paleta y las tipografías del TP1.
 - **Google Fonts:** Bebas Neue, Permanent Marker y Poppins.
 - **Open-Meteo** como API pública.
@@ -73,7 +73,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 
 ## 💻 Cómo correrlo en tu compu
 
-Hace falta tener [Node.js](https://nodejs.org/) instalado (versión 18 o superior).
+Hace falta tener [Node.js](https://nodejs.org/) instalado (versión 20 o superior).
 
 ```bash
 npm install     # instala las dependencias (sólo la primera vez)
@@ -101,6 +101,7 @@ TP2_Front_Grupo13/
     │   ├── ArtistCard.jsx  # Tarjeta que se da vuelta en la portada
     │   ├── PickList.jsx    # Lista de películas o discos favoritos
     │   ├── BandCard.jsx    # Tarjeta de banda de la cartelera
+    │   ├── BandModal.jsx   # Modal con el detalle de una banda
     │   ├── TreeNode.jsx    # Nodo (recursivo) del árbol de componentes
     │   ├── TicketEntry.jsx # Ticket de la bitácora
     │   ├── BackToTop.jsx   # Botón flotante para volver arriba
@@ -139,7 +140,7 @@ Diferenciamos la **aplicación** desde la que trabajamos del **modelo** que usa.
 |------------|------------|--------|-----------------|
 | Agustín Cisneros | Claude (app de escritorio) | Claude Opus 5.5 (Anthropic) | Asistencia en la programación de la estructura en React y las secciones nuevas del TP2. También como guía para entender React |
 | Sebastián Sarango | Antigravity (Google DeepMind) | Claude Sonnet 4.5 | Generación del componente interactivo `SkillBars`, resolución de errores de compatibilidad de dependencias y ajustes de CSS en el sidebar |
-| Valentina Sánchez | _(completar)_ | _(completar)_ | _(completar)_ |
+| Valentina Sánchez | Claude Code (app de escritorio) | Claude Opus 5.5 (Anthropic) |  Utilizado para evaluar alternativas del rediseño de la cartelera. También para redactar parte del README y la entrada de la bitácora |
 | Celina Tarn | _(completar)_ | _(completar)_ | _(completar)_ |
 
 **Revisión propia:** cada sección se probó en el navegador en distintos tamaños de pantalla, se revisó que no hubiera errores en la consola y se ajustaron los contenidos y el diseño con criterio del equipo.
