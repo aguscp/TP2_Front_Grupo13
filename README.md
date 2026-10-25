@@ -48,7 +48,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 
 ### Interacciones de cada perfil
 
-- **Sebas:** barras de skills interactivas. Botones + / − suben o bajan el nivel de cada habilidad (del 1 al 5) y aparece un mensaje especial al llegar al máximo.
+- **Sebas:** barras de skills interactivas (`SkillBars`). Permite regular el nivel de dominio (1 a 5) en cada tecnología con botones + / −, indicadores visuales de progreso y mensajes motivacionales dinámicos al alcanzar el nivel máximo.
 - **Valen:** recomendador al azar. Elige una película o un disco favorito y lo resalta en la lista.
 - **Agus:** reproductor ficticio. Play, pausa y siguiente recorren sus discos con un ecualizador animado y una barra de progreso.
 - **Celi:** generador de frases. Muestra una frase al azar de autores hispanos sin repetir la anterior.

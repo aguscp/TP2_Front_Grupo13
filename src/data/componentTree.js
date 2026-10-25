@@ -1,4 +1,4 @@
-// Árbol de renderizado de la aplicación.
+﻿// Árbol de renderizado de la aplicación.
 // Refleja los componentes reales de src/: si se agrega un componente, hay que sumarlo acá.
 const componentTree = {
     id: "main",
@@ -87,7 +87,7 @@ const componentTree = {
                                                     type: "condicional",
                                                     description: "Se renderiza la interacción que indica el dato \"interaction\" de cada integrante.",
                                                     children: [
-                                                        { id: "hype", name: "HypeMeter", file: "src/components/interactions/HypeMeter.jsx", type: "componente", description: "Sebas: medidor de hype con un slider." },
+                                                        { id: "skills", name: "SkillBars", file: "src/components/interactions/SkillBars.jsx", type: "componente", description: "Sebas: barras de skills interactivas con niveles del 1 al 5 y mensajes al alcanzar el máximo." },
                                                         { id: "random", name: "RandomPick", file: "src/components/interactions/RandomPick.jsx", type: "componente", description: "Valen: recomendador al azar de película o disco." },
                                                         { id: "player", name: "FakePlayer", file: "src/components/interactions/FakePlayer.jsx", type: "componente", description: "Agus: reproductor ficticio de sus discos." },
                                                         { id: "quotes", name: "QuoteGenerator", file: "src/components/interactions/QuoteGenerator.jsx", type: "componente", description: "Celi: generador de frases de autores hispanos." },
