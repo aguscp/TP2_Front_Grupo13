@@ -7,6 +7,7 @@ import HypeMeter from "../components/interactions/HypeMeter.jsx";
 import RandomPick from "../components/interactions/RandomPick.jsx";
 import FakePlayer from "../components/interactions/FakePlayer.jsx";
 import QuoteGenerator from "../components/interactions/QuoteGenerator.jsx";
+import SkillBars from "../components/interactions/SkillBars.jsx";
 import NotFound from "./NotFound.jsx";
 import "../styles/profile.css";
 import "../styles/interactions.css";
@@ -95,6 +96,7 @@ function ProfileView({ member, index }) {
                 )}
                 {member.interaction === "player" && <FakePlayer albums={albums} onPick={setPickedId} />}
                 {member.interaction === "quotes" && <QuoteGenerator />}
+                {member.interaction === "skills" && <SkillBars />}
             </div>
 
             <nav className="profile-actions" aria-label="Navegación entre perfiles">
