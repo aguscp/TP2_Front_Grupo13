@@ -1,0 +1,201 @@
+/* =========================================
+   CARTELERA — datos del JSON, búsqueda y filtro
+========================================= */
+
+.lineup-tools {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 16px;
+    padding: 20px;
+    border: 3px solid var(--ink);
+    background: #fff;
+    box-shadow: 6px 6px 0 var(--ink);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--ink);
+    font: inherit;
+    font-size: 15px;
+}
+
+.lineup-count {
+    margin: 26px 0 18px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.lineup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+/* Cada género tiene su color de la paleta del festival */
+.band-card {
+    --band-color: var(--yellow);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    border: 3px solid var(--ink);
+    border-radius: 6px;
+    background: #fffdf6;
+    box-shadow: 5px 5px 0 var(--band-color);
+    transition: transform 0.2s ease;
+}
+
+.band-card:hover {
+    transform: translateY(-4px) rotate(-0.5deg);
+}
+
+.band-card[data-genre="Rock"] { --band-color: var(--orange); }
+.band-card[data-genre="Rock nacional"] { --band-color: var(--accent); }
+.band-card[data-genre="Indie"] { --band-color: var(--green); }
+.band-card[data-genre="Pop"] { --band-color: var(--pink); }
+.band-card[data-genre="Urbano"] { --band-color: #8f6cf0; }
+.band-card[data-genre="Electrónica"] { --band-color: #33b5e5; }
+.band-card[data-genre="Metal"] { --band-color: var(--ink); }
+
+.band-genre {
+    align-self: flex-start;
+    padding: 3px 10px;
+    border: 2px solid var(--ink);
+    background: var(--band-color);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.band-card[data-genre="Metal"] .band-genre {
+    color: #fff;
+}
+
+.band-name {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.band-when {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.band-toggle {
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 6px 12px;
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.band-toggle:hover {
+    background: var(--band-color);
+    color: var(--ink);
+}
+
+.band-detail {
+    display: grid;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 2px dashed #c9c2ad;
+    font-size: 13px;
+}
+
+.band-detail dt {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.band-description {
+    line-height: 1.6;
+}
+
+.band-fan {
+    justify-self: start;
+    padding: 4px 10px;
+    border: 2px solid var(--ink);
+    background: var(--fan-color);
+    color: var(--ink);
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.lineup-empty {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 50px 20px;
+    border: 3px dashed var(--ink);
+    text-align: center;
+}
+
+.lineup-empty-title {
+    font-family: var(--font-marker);
+    font-size: 28px;
+}
+
+@media (max-width: 1200px) {
+    .lineup-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .lineup-tools {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .lineup-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lineup-tools {
+        padding: 16px;
+    }
+
+    .lineup-tools .btn {
+        width: 100%;
+    }
+}
+
+.band-facts {
+    display: grid;
+    gap: 8px;
+}

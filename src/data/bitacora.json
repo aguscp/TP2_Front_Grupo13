@@ -1,0 +1,252 @@
+[
+    {
+        "id": "001",
+        "tp": "TP1",
+        "day": "22",
+        "month": "SEP",
+        "year": "2026",
+        "venue": "Movistar Arena",
+        "city": "Buenos Aires, Argentina",
+        "title": "Kickoff: tirar ideas a la pared",
+        "paragraphs": [
+            {
+                "text": "Primera reunión del equipo. Pusimos en común las consignas, debatimos temáticas posibles y armamos el primer boceto de división de tareas. Surgieron varias propuestas: personajes de videojuegos, hackers más buscados, un portfolio grupal profesional... Nada terminaba de convencernos."
+            },
+            {
+                "label": "Problema",
+                "text": "teníamos ideas pero ninguna con identidad fuerte."
+            },
+            {
+                "label": "Decisión",
+                "text": "dejar la temática abierta un día más y que cada integrante llegara con una propuesta desarrollada."
+            },
+            {
+                "label": "Aprendizaje del día",
+                "text": "discutir sin rumbo quema tiempo. Mejor traer ideas cocinadas."
+            }
+        ]
+    },
+    {
+        "id": "002",
+        "tp": "TP1",
+        "day": "23",
+        "month": "SEP",
+        "year": "2026",
+        "venue": "Estadio Kempes",
+        "city": "Córdoba, Argentina",
+        "title": "Nace el Festival (y el World Tour)",
+        "paragraphs": [
+            {
+                "text": "Cada integrante presentó su idea. Ganó: sitio de festival de música. Nos permitía jugar con estética fuerte, animaciones, cards de artistas y, de yapa, una tienda de merchandising. Ahí apareció la idea que terminó definiendo todo el proyecto: armar la bitácora como unas \"Fechas de World Tour\". Cada fecha = un hito del desarrollo. Cada ciudad = una etapa."
+            },
+            {
+                "text": "En la misma reunión definimos paleta de colores, tipografías, responsabilidades y qué repositorio de GitHub íbamos a usar."
+            },
+            {
+                "label": "Problema",
+                "text": "no nos poníamos de acuerdo con la paleta (unos querían negro, otros minimalista)."
+            },
+            {
+                "label": "Solución",
+                "text": "votación rápida y nos quedamos con la opción que mejor representaba \"festival\": colores vibrantes + fondo claro."
+            }
+        ]
+    },
+    {
+        "id": "003",
+        "tp": "TP1",
+        "day": "25",
+        "month": "SEP",
+        "year": "2026",
+        "venue": "Estadio Único",
+        "city": "La Plata, Argentina",
+        "title": "Primeros commits y el clásico \"no, así es mejor\"",
+        "paragraphs": [
+            {
+                "text": "Setup inicial del repo. Estructura de carpetas, README, ramas y primer commit."
+            },
+            {
+                "label": "Problema",
+                "text": "nos pusimos a debatir si los archivos HTML iban adentro de una carpeta para una mejor organización o no."
+            },
+            {
+                "label": "Solución",
+                "text": "una releída a las consignas nos hizo dar cuenta de que se pide que estén en la raíz. Fin de la discusión."
+            }
+        ]
+    },
+    {
+        "id": "004",
+        "tp": "TP1",
+        "day": "26",
+        "month": "SEP",
+        "year": "2026",
+        "venue": "Estadio Vélez",
+        "city": "Buenos Aires, Argentina",
+        "title": "De fechas de tour a entradas de concierto",
+        "paragraphs": [
+            {
+                "text": "Día largo y productivo. La estética ya estaba cerrada, el index estaba al 90% y arrancamos a estructurar el perfil de cada integrante."
+            },
+            {
+                "text": "Y acá viene la parte interesante: terminamos la bitácora entera con el formato de \"fechas de World Tour\"... y no nos gustó. 😅"
+            },
+            {
+                "label": "Problema",
+                "text": "la idea del World Tour era linda en papel, pero al verla renderizada era muy aburrida, muy \"cronograma\", muy lista de fechas sueltas. Le faltaba onda."
+            },
+            {
+                "label": "Solución",
+                "text": "rediseñarla por completo. Cada entrada de bitácora ahora es un ticket de concierto. El tono cambió de \"agenda\" a \"recuerdo de una noche épica\"."
+            }
+        ]
+    },
+    {
+        "id": "005",
+        "tp": "TP1",
+        "day": "27",
+        "month": "SEP",
+        "year": "2026",
+        "venue": "Estadio Ciudad de Vicente López",
+        "city": "Buenos Aires, Argentina",
+        "title": "Cazando bugs que ayer no existían (o eso creíamos)",
+        "paragraphs": [
+            {
+                "text": "Hoy el proyecto amaneció con una capa nueva de pintura y, debajo, un ejército de bugs esperando. No es que estén apareciendo de la nada: es que antes no los veíamos. Ahora los vemos. Y ahora nos tienen corriendo."
+            },
+            {
+                "label": "El menú hamburguesa",
+                "text": "en desktop todo era elegante; en mobile... no cubría todo el div y costaba tocar el texto pequeñito."
+            },
+            {
+                "label": "Las animaciones",
+                "text": "el desplazamiento de imágenes queda hermoso... pero rompía todos los márgenes en dispositivos."
+            },
+            {
+                "label": "Aprendizajes",
+                "text": "un bug no es \"raro\": es un bug que todavía no entendemos. Si no se prueba en mobile real, no está probado. Las animaciones necesitan límites: overflow, transform-origin y breakpoints. El menú hamburguesa no es un componente, es un ecosistema."
+            },
+            {
+                "text": "Bugs everywhere. Pero seguimos."
+            }
+        ]
+    },
+    {
+        "id": "006",
+        "tp": "TP1",
+        "day": "28",
+        "month": "SEP",
+        "year": "2026",
+        "venue": "Estadio Monumental",
+        "city": "Buenos Aires, Argentina",
+        "title": "El último show del tour",
+        "paragraphs": [
+            {
+                "text": "Con todo el sitio armado, nos juntamos a repasar el camino recorrido: de no tener temática a tener un festival completo con line up, perfiles y esta bitácora que están leyendo."
+            },
+            {
+                "text": "Repartir tareas por rama funcionó bien, pero también aprendimos que conviene avisar en el grupo antes de tocar un archivo compartido (css/base.css nos dio algún que otro dolor de cabeza con conflictos de merge)."
+            },
+            {
+                "label": "Problema",
+                "text": "con tantos cambios de último momento, nos costó coordinar quién subía qué y en qué orden."
+            },
+            {
+                "label": "Solución",
+                "text": "armamos un checklist final compartido y cada uno tildaba su tarea antes de hacer push, para evitar pisarnos."
+            }
+        ]
+    },
+    {
+        "id": "007",
+        "tp": "TP2",
+        "day": "20",
+        "month": "OCT",
+        "year": "2026",
+        "venue": "Hipódromo de Palermo",
+        "city": "Buenos Aires, Argentina",
+        "title": "Segunda edición: el festival vuelve, ahora en React",
+        "paragraphs": [
+            {
+                "text": "Llegó la consigna del TP2: pasar el proyecto a React, con una sidebar compartida, datos locales en JSON, una API pública, el árbol de componentes y esta bitácora."
+            },
+            {
+                "label": "Problema",
+                "text": "había que decidir qué se reutilizaba del TP1 y qué se rehacía desde cero."
+            },
+            {
+                "label": "Decisión",
+                "text": "mantener la identidad del festival (paleta, tipografías, tarjetas, tickets) y reconstruir la estructura con componentes. La cartelera de bandas y el clima de las sedes encajaban con la temática para cubrir el JSON y la API."
+            }
+        ]
+    },
+    {
+        "id": "008",
+        "tp": "TP2",
+        "day": "22",
+        "month": "OCT",
+        "year": "2026",
+        "venue": "Hipódromo de San Isidro",
+        "city": "Buenos Aires, Argentina",
+        "title": "De cuatro HTML a un solo componente",
+        "paragraphs": [
+            {
+                "text": "Se creó el proyecto con Vite y React Router, y el menú superior del TP1 se convirtió en una sidebar fija con la sección activa marcada."
+            },
+            {
+                "label": "Problema",
+                "text": "en el TP1 cada perfil era un HTML distinto, con la misma estructura copiada cuatro veces. Cualquier cambio había que repetirlo en todos."
+            },
+            {
+                "label": "Decisión",
+                "text": "un solo componente de perfil que recibe los datos de cada integrante desde members.json. Las interacciones del TP1 (hype, recomendador, reproductor y frases) pasaron a ser componentes propios."
+            },
+            {
+                "label": "Aprendizaje del día",
+                "text": "lo que se repite es un componente; lo que cambia, son sus props."
+            }
+        ]
+    },
+    {
+        "id": "009",
+        "tp": "TP2",
+        "day": "23",
+        "month": "OCT",
+        "year": "2026",
+        "venue": "Movistar Arena",
+        "city": "Buenos Aires, Argentina",
+        "title": "Elegir los instrumentos: decisiones técnicas",
+        "paragraphs": [
+            { "text": "Con la estructura en marcha, tocaba definir con qué herramientas resolver cada parte, entre las opciones vistas en la cursada." },
+            { "label": "Problema", "text": "para pedir datos a la API se podía usar fetch o Axios; para los estilos, Bootstrap, CSS Modules, styled-components u hojas de estilo propias. Cada opción cambiaba bastante cómo se escribía el código." },
+            { "label": "Decisión", "text": "fetch con async/await y try/catch, porque viene incluido en el navegador y no suma dependencias. Y hojas de estilo propias por sección, para conservar la estética del TP1 sin depender de una librería." }
+        ]
+    },
+    {
+        "id": "010",
+        "tp": "TP2",
+        "day": "24",
+        "month": "OCT",
+        "year": "2026",
+        "venue": "Estadio Ciudad de La Plata",
+        "city": "La Plata, Argentina",
+        "title": "Ensayo general: pruebas y ajustes",
+        "paragraphs": [
+            {
+                "text": "Primer recorrido completo de la app corriendo en local: portada, perfiles, cartelera, clima, árbol y bitácora."
+            },
+            {
+                "label": "Pedido de cambio",
+                "text": "en escritorio la sidebar ocupaba mucho lugar. Se agregó un botón para contraerla y dejar sólo los íconos; en celular sigue funcionando como panel."
+            },
+            {
+                "label": "Problema",
+                "text": "una API que pide clave la deja expuesta en el código del repositorio público, y otras no permiten pedidos desde el navegador (CORS)."
+            },
+            {
+                "label": "Solución",
+                "text": "quedarse con Open-Meteo, que no necesita clave, funciona desde el navegador y suma un mensaje de carga, otro de error y un botón para reintentar."
+            }
+        ]
+    }
+]

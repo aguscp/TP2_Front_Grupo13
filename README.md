@@ -1,0 +1,147 @@
+# ϟ WebFest 2026 · Segunda edición — Grupo 13
+
+> Trabajo Práctico Grupal 2 · Desarrollo de Sistemas Web (Front End) · 2026, 2do cuatrimestre
+
+**WebFest 2026** es la aplicación React del Grupo 13. Continúa el sitio del TP1, pensado como el afiche de un festival de música: cada integrante es un "artista" del line up. En esta edición el festival se mudó a React. Ahora tiene una **sidebar** compartida, perfiles armados con un mismo componente, una **cartelera** de bandas cargada desde un JSON local con búsqueda y filtro, el **clima de las sedes** consultado a una API pública, el **árbol de componentes** de la app y la **bitácora** del tour.
+
+🔗 **Sitio publicado en Vercel:** _(pegar acá la URL de Vercel)_
+
+📁 **Repositorio:** _(pegar acá la URL del repositorio)_
+
+---
+
+## 📑 Índice
+
+1. [Integrantes y responsabilidades](#-integrantes-y-responsabilidades)
+2. [Secciones de la aplicación](#-secciones-de-la-aplicación)
+3. [Tecnologías](#️-tecnologías)
+4. [Cómo correrlo en tu compu](#-cómo-correrlo-en-tu-compu)
+5. [Estructura del proyecto](#-estructura-del-proyecto)
+6. [Guía de estilos](#-guía-de-estilos)
+7. [Uso de IA](#-uso-de-inteligencia-artificial)
+
+---
+
+## 👥 Integrantes y responsabilidades
+
+| # | Integrante | GitHub | Perfil en la app | Responsabilidad principal |
+|---|------------|--------|------------------|---------------------------|
+| 01 | Sebastián _(apellido)_ | [@DevJaSeb](https://github.com/DevJaSeb) | `/perfil/sebas` | _(completar)_ |
+| 02 | Valentina _(apellido)_ | [@ValentinaBS](https://github.com/ValentinaBS) | `/perfil/valen` | _(completar)_ |
+| 03 | Agustín _(apellido)_ | [@aguscp](https://github.com/aguscp) | `/perfil/agus` | Repositorio, base en React (rutas, sidebar y layout), cartelera con JSON, API de clima y árbol de componentes |
+| 04 | Celina _(apellido)_ | [@celina-web](https://github.com/celina-web) | `/perfil/celi` | _(completar)_ |
+
+---
+
+## 🧭 Secciones de la aplicación
+
+Todas las secciones se recorren desde la **sidebar**, que muestra la identidad del festival, los enlaces y la sección activa. En escritorio se puede contraer para dejar sólo los íconos (botón « / »). En celular y tablet se convierte en un panel que se abre con el botón ☰ y se cierra con la ✕, tocando afuera o con la tecla Escape. Además, cada pantalla tiene botones para seguir o volver, así que nunca hace falta usar el botón Atrás del navegador.
+
+| Sección | Ruta | Qué tiene |
+|---------|------|-----------|
+| **Inicio** | `/` | Presentación del equipo, tarjetas que se dan vuelta con un resumen de cada integrante y botón de perfil al azar. |
+| **Perfiles** | `/perfil/:slug` | Un mismo componente (`Profile`) para los 4 integrantes, con los datos de `members.json`. Cada perfil tiene su propia interacción. |
+| **Cartelera** | `/cartelera` | 25 bandas de `lineup.json` con búsqueda por texto, filtro por género, mensaje de "sin resultados", botón para ver todas y detalle desplegable en cada tarjeta. |
+| **Clima del festival** | `/clima` | Clima actual y pronóstico de 3 días de cada sede del tour, desde la API de Open-Meteo, con estados de carga y error y botones para actualizar y reintentar. |
+| **Árbol de componentes** | `/arbol` | Jerarquía real de componentes de la app, con ramas que se expanden y contraen. |
+| **Bitácora** | `/bitacora` | Entradas del proceso con forma de ticket, desplegables y filtro por TP. Sigue la bitácora del TP1. |
+
+### Interacciones de cada perfil
+
+- **Sebas:** medidor de hype. Un slider cambia el mensaje y el emoji según el nivel de energía.
+- **Valen:** recomendador al azar. Elige una película o un disco favorito y lo resalta en la lista.
+- **Agus:** reproductor ficticio. Play, pausa y siguiente recorren sus discos con un ecualizador animado y una barra de progreso.
+- **Celi:** generador de frases. Muestra una frase al azar de autores hispanos sin repetir la anterior.
+
+### API pública: Open-Meteo
+
+[Open-Meteo](https://open-meteo.com/) es una API de clima gratuita que **no necesita clave**, así que se consulta directo desde el navegador sin exponer datos privados. Aporta la temperatura actual, la sensación térmica, el viento, el estado del cielo y la probabilidad de lluvia de los próximos 3 días para las coordenadas de cada sede.
+
+---
+
+## 🛠️ Tecnologías
+
+- **React 19** con componentes funcionales y hooks (`useState`, `useEffect`).
+- **React Router 7** para la navegación entre secciones.
+- **Vite** como entorno de desarrollo y build.
+- **CSS propio**, un archivo por sección, con la paleta y las tipografías del TP1.
+- **Google Fonts:** Bebas Neue, Permanent Marker y Poppins.
+- **Open-Meteo** como API pública.
+- **Git + GitHub** para el trabajo en equipo y **Vercel** para la publicación.
+
+---
+
+## 💻 Cómo correrlo en tu compu
+
+Hace falta tener [Node.js](https://nodejs.org/) instalado.
+
+```bash
+npm install     # instala las dependencias (sólo la primera vez)
+npm run dev     # levanta la app en http://localhost:5173
+npm run build   # genera la versión para publicar en la carpeta dist/
+```
+
+El archivo `vercel.json` hace que Vercel siempre devuelva la app, así cada sección se puede abrir o recargar directo desde su URL (por ejemplo, `/perfil/agus`).
+
+---
+
+## 📂 Estructura del proyecto
+
+```
+TP2_Front_Grupo13/
+├── index.html              # HTML base: React se monta en <div id="root">
+├── vercel.json             # Redirige todas las rutas a la app (recarga sin error 404)
+├── public/img/             # Fotos de las mascotas, ícono y merch
+└── src/
+    ├── main.jsx            # Punto de entrada: monta <App /> dentro de BrowserRouter
+    ├── App.jsx             # Rutas de la aplicación
+    ├── components/         # Piezas reutilizables
+    │   ├── Layout.jsx      # Sidebar + contenido + footer
+    │   ├── Sidebar.jsx     # Menú lateral compartido
+    │   ├── ArtistCard.jsx  # Tarjeta que se da vuelta en la portada
+    │   ├── PickList.jsx    # Lista de películas o discos favoritos
+    │   ├── BandCard.jsx    # Tarjeta de banda de la cartelera
+    │   ├── TreeNode.jsx    # Nodo (recursivo) del árbol de componentes
+    │   ├── TicketEntry.jsx # Ticket de la bitácora
+    │   ├── BackToTop.jsx   # Botón flotante para volver arriba
+    │   └── interactions/   # La interacción de cada perfil
+    ├── pages/              # Una página por ruta
+    ├── data/               # members.json, lineup.json, bitacora.json y el árbol
+    ├── hooks/              # usePageTitle: título de la pestaña por sección
+    └── styles/             # CSS global y de cada sección
+```
+
+---
+
+## 🎨 Guía de estilos
+
+| Muestra | Hex | Uso |
+|---------|-----|-----|
+| ![#F5EFD9](https://placehold.co/20x20/F5EFD9/F5EFD9.png) | `#F5EFD9` | Fondo general (papel de afiche) |
+| ![#111111](https://placehold.co/20x20/111111/111111.png) | `#111111` | Texto, bordes, botones y sidebar |
+| ![#65D98B](https://placehold.co/20x20/65D98B/65D98B.png) | `#65D98B` | Sebas · componentes en el árbol · género Indie |
+| ![#FF4F81](https://placehold.co/20x20/FF4F81/FF4F81.png) | `#FF4F81` | Valen · páginas en el árbol · género Pop |
+| ![#FF7A45](https://placehold.co/20x20/FF7A45/FF7A45.png) | `#FF7A45` | Agus · layout en el árbol · género Rock |
+| ![#FFD447](https://placehold.co/20x20/FFD447/FFD447.png) | `#FFD447` | Celi · sección activa de la sidebar · clima |
+| ![#E83268](https://placehold.co/20x20/E83268/E83268.png) | `#E83268` | Acentos: títulos chicos, borde de la sidebar, rock nacional |
+
+- **Tipografías:** Permanent Marker para los títulos grandes, Bebas Neue para números y nombres, y Poppins para el texto.
+- **Iconografía:** emojis y símbolos de texto (ϟ, ★, ☁, ✎), sin librerías externas.
+- **Breakpoints:** 400 px (celular), 900 px (la sidebar pasa a ser un panel) y 1200 px (escritorio).
+
+---
+
+## 🤖 Uso de Inteligencia Artificial
+
+Diferenciamos la **aplicación** desde la que trabajamos del **modelo** que usa.
+
+| Integrante | Aplicación | Modelo | Plan | Para qué se usó |
+|------------|------------|--------|------|-----------------|
+| Agustín | Claude (app de escritorio) | Claude Opus 5.5 (Anthropic) | pago | Asistencia en la programación de la estructura en React y las secciones nuevas del TP2. También como guía para entender React |
+| Sebastián | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
+| Valentina | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
+| Celina | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
+
+**Revisión propia:** cada sección se probó en el navegador en distintos tamaños de pantalla, se revisó que no hubiera errores en la consola y se ajustaron los contenidos y el diseño con criterio del equipo.
+
+**Imágenes:** las fotos de los perfiles son fotos reales de perros (las mascotas de cada integrante y, en el caso de Agus, el perro que le gustaría tener), elegidas para no publicar fotos personales. Las remeras de la tienda se hicieron en Canva con plantillas gratuitas.

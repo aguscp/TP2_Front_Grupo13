@@ -1,0 +1,110 @@
+[
+    {
+        "slug": "sebas",
+        "number": "#01",
+        "stageName": "SEBAS",
+        "fullName": "Sebastián",
+        "color": "#65D98B",
+        "cardColor": "green",
+        "photo": "/img/sebas-mascota.jpeg",
+        "photoAlt": "Tango, la mascota de Sebas: un labrador con la peor de las ondas",
+        "photoCaption": "Tango, mi mascota que odia los lunes",
+        "city": "Balvanera, CABA",
+        "age": 33,
+        "summary": "Ecuatoriano viviendo en Argentina, desarrollador y fan de los videojuegos, cumpliendo la cuota extranjera del grupo.",
+        "bio": "☕ Café primero, luego existo. Desarrollador y fan de los videojuegos, me engancha entender cómo encajan todas las piezas del desarrollo — front, back, testing — como si fuera un mismo track. Música de fondo, mate al lado, y a resolver lo que venga.",
+        "skills": ["HTML y CSS", "JavaScript", "React", "SQL"],
+        "movies": [
+            { "title": "El Piso 13", "year": 1999 },
+            { "title": "Bastardos Sin Gloria", "year": 2009 },
+            { "title": "La Familia del Futuro", "year": 2007 }
+        ],
+        "albums": [
+            { "title": "La Edad de la Cebra", "artist": "Verde 70" },
+            { "title": "Que el Cielo Espere Sentao", "artist": "Melendi" },
+            { "title": "Otro Día en el Planeta Tierra", "artist": "Intoxicados" }
+        ],
+        "interaction": "hype"
+    },
+    {
+        "slug": "valen",
+        "number": "#02",
+        "stageName": "VALEN",
+        "fullName": "Valentina",
+        "color": "#FF4F81",
+        "cardColor": "pink",
+        "photo": "/img/valentina-mascota.webp",
+        "photoAlt": "Luna, la mascota de Valentina: una golden retriever blanca sonriendo",
+        "photoCaption": "Luna, mi compañera",
+        "city": "Ezeiza, Buenos Aires",
+        "age": 23,
+        "summary": "Desde Ezeiza, 23 años. Maquetadora obsesiva de los detalles y fan del rock nacional.",
+        "bio": "Maquetadora obsesiva de los detalles. Si el diseño no queda igual en 400 px que en 1200 px, no duermo. Toco el piano (mal) y programo (mejor).",
+        "skills": ["HTML semántico", "CSS (Flexbox y Grid)", "JavaScript", "Diseño UX/UI en Figma"],
+        "movies": [
+            { "title": "Whiplash", "year": 2014 },
+            { "title": "La La Land", "year": 2016 },
+            { "title": "Ratatouille", "year": 2007 }
+        ],
+        "albums": [
+            { "title": "Clics Modernos", "artist": "Charly García" },
+            { "title": "El amor después del amor", "artist": "Fito Páez" },
+            { "title": "Future Nostalgia", "artist": "Dua Lipa" }
+        ],
+        "interaction": "random"
+    },
+    {
+        "slug": "agus",
+        "number": "#03",
+        "stageName": "AGUS",
+        "fullName": "Agustín",
+        "color": "#FF7A45",
+        "cardColor": "orange",
+        "photo": "/img/agus-mascota.jpeg",
+        "photoAlt": "El perro que Agus todavía no tiene, pero espera para el futuro",
+        "photoCaption": "No tengo perro, pero si tuviera, sería este",
+        "city": "San Nicolás (Congreso), CABA",
+        "age": 35,
+        "summary": "Desde Congreso, 35 años. Del mundo de los datos, virginiano compulsivo. Fan del grunge.",
+        "bio": "Vengo del mundo de los datos, pero me encargo además de entender procesos para mejorarlos, resolver problemas (muchas veces que no tienen absolutamente nada que ver conmigo), entre otras cosas. Si me buscan seguramente me van a encontrar quejándome de algo, pero con rock de fondo. Motto: \"My parents raised a complainer, not a quitter\"",
+        "skills": ["Python", "SQL", "Power BI", "Java"],
+        "movies": [
+            { "title": "Interstellar", "year": 2014 },
+            { "title": "La Odisea", "year": 2026 },
+            { "title": "El exorcista", "year": 1973 }
+        ],
+        "albums": [
+            { "title": "Ten", "artist": "Pearl Jam" },
+            { "title": "AM", "artist": "Arctic Monkeys" },
+            { "title": "La vida era más corta", "artist": "Milo J" }
+        ],
+        "interaction": "player"
+    },
+    {
+        "slug": "celi",
+        "number": "#04",
+        "stageName": "CELI",
+        "fullName": "Celina",
+        "color": "#FFD447",
+        "cardColor": "yellow",
+        "photo": "/img/celina-mascota.jpeg",
+        "photoAlt": "Felipe, un perro pequeño tomando sol en un banco",
+        "photoCaption": "Felipe, mi mascota",
+        "city": "Caballito, CABA",
+        "age": 30,
+        "summary": "De Caballito, 30 años. Senior Manager of \"En Mi Máquina Funciona\" & Asociados.",
+        "bio": "Me especializo en resolver problemas que yo misma creé, en discutir con bases de datos que no me responden, y en decir \"en mi máquina funciona\" con total seguridad mientras rezo por dentro. Mi misión: que todo funcione, que nadie lo note, y que cuando se caiga, no sea culpa mía (aunque probablemente lo sea).",
+        "skills": ["PHP", "Laravel", "SQL", "AWS"],
+        "movies": [
+            { "title": "El Origen", "year": 2010 },
+            { "title": "Batman: el caballero de la noche", "year": 2008 },
+            { "title": "El Planeta del tesoro", "year": 2002 }
+        ],
+        "albums": [
+            { "title": "Thriller", "artist": "Michael Jackson" },
+            { "title": "Britney", "artist": "Britney Spears" },
+            { "title": "Monkey Business", "artist": "Black Eyed Peas" }
+        ],
+        "interaction": "quotes"
+    }
+]

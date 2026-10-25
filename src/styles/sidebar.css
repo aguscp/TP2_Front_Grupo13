@@ -1,0 +1,330 @@
+/* =========================================
+   SIDEBAR — menú lateral compartido
+========================================= */
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: var(--sidebar-width);
+    padding: 28px 18px 22px;
+    overflow-y: auto;
+    background: var(--ink);
+    color: var(--paper);
+    border-right: 4px solid var(--accent);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 6px 22px;
+    border-bottom: 2px dashed #444;
+}
+
+.sidebar-logo {
+    display: inline-block;
+    color: var(--yellow);
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 0.8;
+    text-decoration: none;
+    transform: rotate(-5deg);
+}
+
+.sidebar-logo--small {
+    color: var(--ink);
+    font-size: 30px;
+}
+
+.sidebar-year {
+    font-family: var(--font-display);
+    font-size: 34px;
+    line-height: 1;
+}
+
+.sidebar-team {
+    color: #d8d2c3;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-label {
+    margin: 16px 10px 6px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.sidebar-link {
+    --link-color: var(--yellow);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: var(--paper);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background: #222;
+    transform: translateX(4px);
+}
+
+/* Sección activa: fondo del color del enlace y texto negro */
+.sidebar-link.is-active {
+    background: var(--link-color);
+    border-color: var(--paper);
+    color: var(--ink);
+    font-weight: 800;
+    transform: rotate(-1deg);
+}
+
+.sidebar-icon {
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-dot {
+    width: 14px;
+    height: 14px;
+    margin: 0 3px;
+    border: 2px solid var(--paper);
+    border-radius: 50%;
+    background: var(--link-color);
+}
+
+.sidebar-link.is-active .sidebar-dot {
+    border-color: var(--ink);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 0 10px;
+    color: #8c867a;
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* Barra superior y overlay: ocultos en escritorio */
+.topbar,
+.sidebar-overlay {
+    display: none;
+}
+
+/* =========================================
+   TABLET Y CELULAR: la sidebar pasa a ser un panel
+========================================= */
+
+@media (max-width: 900px) {
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 5%;
+        background: var(--paper);
+        border-bottom: 3px solid var(--ink);
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 46px;
+        height: 46px;
+        padding: 0 10px;
+        border: 3px solid var(--ink);
+        border-radius: 8px;
+        background: var(--ink);
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        height: 3px;
+        background: var(--paper);
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .sidebar {
+        width: min(82vw, 300px);
+        visibility: hidden;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease, visibility 0.3s;
+    }
+
+    .sidebar.is-open {
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 95;
+        display: block;
+        background: rgba(17, 17, 17, 0.6);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .sidebar-overlay.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* =========================================
+   SIDEBAR CONTRAÍDA (sólo escritorio)
+========================================= */
+
+.sidebar {
+    transition: width 0.25s ease;
+}
+
+.sidebar-collapse {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.sidebar-collapse:hover {
+    border-color: var(--yellow);
+    background: #222;
+}
+
+.sidebar-collapse > span:first-child {
+    width: 20px;
+    font-size: 18px;
+    line-height: 1;
+    text-align: center;
+}
+
+.app-shell.sidebar-collapsed {
+    --sidebar-width: 84px;
+}
+
+.sidebar.is-collapsed {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.sidebar.is-collapsed .sidebar-text {
+    display: none;
+}
+
+.sidebar.is-collapsed .sidebar-brand {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar.is-collapsed .sidebar-logo {
+    font-size: 26px;
+}
+
+.sidebar.is-collapsed .sidebar-label {
+    height: 2px;
+    margin: 14px 8px 8px;
+    background: #444;
+}
+
+.sidebar.is-collapsed .sidebar-link,
+.sidebar.is-collapsed .sidebar-collapse {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar.is-collapsed .sidebar-link:hover {
+    transform: none;
+}
+
+/* En celular y tablet la sidebar es un panel: no se contrae */
+@media (max-width: 900px) {
+    .sidebar-collapse {
+        display: none;
+    }
+
+    .app-shell.sidebar-collapsed {
+        --sidebar-width: 260px;
+    }
+
+    .sidebar.is-collapsed .sidebar-text {
+        display: revert;
+    }
+
+    .sidebar.is-collapsed .sidebar-label {
+        height: auto;
+        margin: 16px 10px 6px;
+        background: none;
+    }
+
+    .sidebar.is-collapsed .sidebar-link {
+        justify-content: flex-start;
+        padding: 10px 12px;
+    }
+
+    .sidebar.is-collapsed .sidebar-brand {
+        justify-content: flex-start;
+        padding: 0 6px 22px;
+    }
+
+    .sidebar.is-collapsed .sidebar-logo {
+        font-size: 40px;
+    }
+}
+
+.sidebar.is-collapsed .sidebar-collapse {
+    margin-top: auto;
+}

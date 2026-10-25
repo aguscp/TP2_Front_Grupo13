@@ -1,0 +1,185 @@
+/* =========================================
+   ÁRBOL DE COMPONENTES — expandible
+========================================= */
+
+.tree-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.tree-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-left: auto;
+    list-style: none;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.tree-legend li {
+    padding: 3px 8px;
+    border: 2px solid var(--ink);
+    background: var(--node-color);
+}
+
+/* Color según el tipo de nodo */
+.tree-node--entrada { --node-color: #d8d2c3; }
+.tree-node--rutas { --node-color: var(--yellow); }
+.tree-node--layout { --node-color: var(--orange); }
+.tree-node--página { --node-color: var(--pink); }
+.tree-node--componente { --node-color: var(--green); }
+.tree-node--condicional { --node-color: #c9b8ff; }
+
+.tree,
+.tree-children {
+    list-style: none;
+}
+
+.tree-children {
+    margin-left: 22px;
+    padding-left: 22px;
+    border-left: 3px dashed var(--ink);
+}
+
+.tree-node {
+    position: relative;
+    margin-top: 12px;
+}
+
+.tree-children > .tree-node::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: -22px;
+    width: 18px;
+    border-top: 3px dashed var(--ink);
+}
+
+.tree-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.tree-toggle,
+.tree-leaf {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    margin-top: 8px;
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.tree-toggle {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.tree-toggle:hover {
+    background: var(--node-color);
+    color: var(--ink);
+    transform: scale(1.1);
+}
+
+.tree-leaf {
+    background: #fffdf6;
+    color: var(--ink);
+}
+
+.tree-card {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 14px;
+    border: 3px solid var(--ink);
+    border-left: 10px solid var(--node-color);
+    background: #fffdf6;
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+.tree-name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.tree-aside {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tree-count,
+.tree-type {
+    padding: 1px 7px;
+    border: 2px solid var(--ink);
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.tree-count {
+    background: var(--ink);
+    color: #fff;
+}
+
+.tree-type {
+    background: var(--node-color);
+}
+
+.tree-description {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.tree-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .tree-legend {
+        margin-left: 0;
+    }
+
+    .tree-children {
+        margin-left: 10px;
+        padding-left: 12px;
+    }
+
+    .tree-children > .tree-node::before {
+        left: -12px;
+        width: 8px;
+    }
+
+    .tree-toggle,
+    .tree-leaf {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+}

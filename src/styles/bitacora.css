@@ -1,0 +1,862 @@
+/*º=========================
+   BITÁCORA
+========================= */
+
+
+/* =========================
+   TOUR
+========================= */
+
+.tour {
+    width: 100%;
+    padding: 100px 7%;
+    background: #00000000;
+}
+
+.tour > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* TÍTULO */
+
+.tour-title {
+    margin-bottom: 70px;
+
+    text-align: center;
+}
+
+.tour-title span,
+.store-title span {
+    display: block;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color: #e83268;
+
+    margin-bottom: 5px;
+}
+
+.tour-title h2,
+.store-title h2 {
+    font-family: "Permanent Marker", cursive;
+
+    font-size: clamp(50px, 7vw, 100px);
+
+    line-height: 1;
+
+    transform: rotate(-2deg);
+}
+
+
+/* =========================
+   LISTA
+========================= */
+
+.tour-list {
+    display: grid;
+    max-width: 1000px;
+    gap: 28px;
+    margin: auto;
+}
+
+
+/* =========================
+   FECHA
+========================= */
+
+.tour-date {
+    --ticket-accent: #e83268;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    grid-template-rows: auto 1fr;
+    gap: 0 22px;
+    padding: 24px 26px;
+    overflow: hidden;
+    border: 2px solid #111;
+    border-radius: 8px;
+    background: #fffdf6;
+    box-shadow: 7px 7px 0 #111;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tour-date:hover {
+    transform: translateY(-3px) rotate(-0.25deg);
+    box-shadow: 9px 10px 0 #111;
+}
+
+
+
+.ticket-info {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px 22px;
+    grid-column: 1;
+}
+
+.ticket-heading {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d8d2c3;
+    color: #555;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.ticket-heading > span:first-child {
+    color: var(--ticket-accent);
+}
+
+.ticket-number {
+    flex-shrink: 0;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+
+/* FECHA */
+
+.date {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.date .day {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 64px;
+    line-height: 1;
+}
+
+.date .month {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+}
+
+.date .year {
+    font-size: 13px;
+    font-weight: 600;
+    color: #666666;
+}
+
+
+/* =========================
+   ESTADIO
+========================= */
+
+.venue h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.venue p {
+    font-size: 14px;
+    color: #555;
+}
+
+.ticket-stub {
+    position: relative;
+    display: flex;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 0;
+    margin: -24px -26px -24px 0;
+    padding: 26px 16px;
+    border-left: 2px dashed #aaa38f;
+    background: #fce2e2;
+    text-align: center;
+}
+
+.ticket-stub::before,
+.ticket-stub::after {
+    position: absolute;
+    left: -10px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #111;
+    border-radius: 50%;
+    background: #f5efd9;
+    content: "";
+}
+
+.ticket-stub::before {
+    top: -11px;
+}
+
+.ticket-stub::after {
+    bottom: -11px;
+}
+
+.ticket-admit {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+}
+
+.ticket-code {
+    color: #555;
+    font-family: monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.ticket-barcode {
+    width: 100%;
+    max-width: 105px;
+    height: 38px;
+    background: repeating-linear-gradient(
+        90deg,
+        #111 0 2px,
+        #00000000 2px 4px,
+        #111 4px 5px,
+        #00000000 5px 8px,
+        #111 8px 11px,
+        #00000000 11px 13px
+    );
+}
+
+.tour-comment {
+    grid-column: 1;
+    width: 100%;
+    padding-top: 16px;
+    border-top: 1px solid #d8d2c3;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.tour-comment p + p {
+    margin-top: 10px;
+}
+
+
+/* =========================
+   BOTÓN TICKETS
+========================= */
+
+.tickets,
+.sold {
+    justify-self: end;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 130px;
+
+    padding: 12px 20px;
+
+    border: 2px solid #111;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #111;
+
+    transition: 0.2s ease;
+}
+
+.tickets:hover {
+    background: #111;
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+
+/* SOLD OUT */
+
+.sold {
+    min-width: 0;
+    padding: 7px 10px;
+    border: 2px solid var(--ticket-accent);
+    border-radius: 3px;
+    color: var(--ticket-accent);
+    font-size: 11px;
+    transform: rotate(-5deg);
+    cursor: default;
+}
+
+
+/* =========================
+   OFFICIAL STORE
+========================= */
+
+.store {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+
+    padding: 100px 7% 130px;
+
+    background: #111;
+
+    color: #ffffff;
+}
+
+.store-title {
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+.store-title h2 {
+    color: #ffffff;
+}
+
+
+/* GRID */
+
+.store-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* CARD */
+
+.store-card {
+    background: #f5efd9;
+
+    color: #111;
+
+    padding: 12px;
+
+    transition: 0.25s ease;
+}
+
+.store-card:hover {
+    transform: translateY(-8px);
+}
+
+
+/* IMAGEN */
+
+.store-image {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background: #ddd;
+}
+
+.store-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.store-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* INFO */
+
+.store-card h3 {
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 24px;
+
+    margin: 15px 5px 10px;
+}
+
+
+/* BUY */
+
+.buy {
+    display: inline-block;
+
+    margin: 0 5px 10px;
+
+    padding: 9px 15px;
+
+    background: #111;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    border: 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.buy:hover {
+    background: #e83268;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+    .tour,
+    .store {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .ticket-info {
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .date .day {
+        font-size: 48px;
+    }
+
+    .venue h3 {
+        font-size: 17px;
+    }
+
+    .store-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .tour {
+        padding: 70px 20px;
+    }
+
+    .tour-title {
+        margin-bottom: 45px;
+    }
+
+
+    .tour-date {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto auto;
+        box-shadow: 4px 4px 0 #111;
+        padding: 18px 16px 0px 16px;
+    }
+
+    .ticket-info {
+        grid-row: 1;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .ticket-heading {
+        flex-wrap: wrap;
+        font-size: 9px;
+    }
+
+    .ticket-stub {
+        grid-column: 1;
+        grid-row: 3;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 8px;
+        margin: 0 -16px;
+        padding: 12px 10px;
+        border-top: 2px dashed #aaa38f;
+        border-left: 0;
+    }
+
+    .ticket-stub::before,
+    .ticket-stub::after {
+        display: none;
+    }
+
+    .ticket-admit {
+        font-size: 14px;
+    }
+
+    .ticket-barcode {
+        width: 55px;
+        height: 24px;
+    }
+
+    .tour-comment {
+        grid-row: 2;
+        padding-top: 12px;
+        font-size: 14px;
+    }
+
+
+    .date {
+        align-items: baseline;
+        gap: 6px;
+    }
+
+    .date .day {
+        font-size: 48px;
+    }
+
+    .date .month {
+        font-size: 20px;
+    }
+
+    .date .year {
+        font-size: 11px;
+    }
+
+
+    /* Estadio */
+
+    .venue {
+        align-self: center;
+    }
+
+    .venue h3 {
+        font-size: 15px;
+
+        line-height: 1.3;
+    }
+
+    .venue p {
+        font-size: 12px;
+
+        line-height: 1.4;
+    }
+
+
+    .sold {
+        padding: 6px 7px;
+        font-size: 9px;
+    }
+
+
+    /* STORE */
+
+    .store {
+        padding: 70px 20px 100px;
+    }
+
+    .store-title {
+        margin-bottom: 40px;
+    }
+
+    .store-grid {
+        grid-template-columns: 1fr;
+
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 400px) {
+    .tour-date {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 12px 6px 0px 6px;
+    }
+
+    .ticket-stub {
+        margin: 0 -12px;
+        padding: 12px 6px;
+    }
+
+    .date .year {
+        font-size: 20px;
+    }
+
+    .ticket-heading {
+        letter-spacing: 0.8px;
+    }
+
+    .ticket-number {
+        font-size: 13px;
+    }
+
+    .venue h3 {
+        font-size: 14px;
+    }
+
+    .ticket-code {
+        font-size: 8px;
+    }
+
+    .ticket-admit {
+        font-size: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tour-date {
+        transition: none;
+    }
+
+    .tour-date:hover {
+        transform: none;
+    }
+}
+
+/* =========================
+   ENCORE / BACKSTAGE PASS
+========================= */
+
+.encore-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    gap: 20px;
+}
+
+.btn-encore {
+    padding: 16px 32px;
+    background: #111;
+    color: #fff;
+    border: 3px solid #111;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 6px 6px 0 #e83268;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-encore:hover {
+    transform: translateY(-4px);
+    background: #e83268;
+    color: #111;
+    box-shadow: 8px 8px 0 #111;
+}
+
+.btn-encore:focus-visible {
+    outline: 3px dashed #111;
+    outline-offset: 4px;
+}
+
+.backstage-pass {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    
+    /* Animación inicial oculta */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-20px);
+    transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.backstage-pass.show {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .backstage-pass,
+    .btn-encore {
+        transition: none;
+    }
+}
+
+.backstage-pass-inner {
+    background: #FFD447;
+    border: 4px solid #111;
+    border-radius: 12px;
+    padding: 24px;
+    transform: rotate(2deg);
+    box-shadow: 10px 10px 0 #111;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.backstage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px dashed #111;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+}
+
+.backstage-header h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 36px;
+    margin: 0;
+    color: #111;
+    letter-spacing: 2px;
+}
+
+.backstage-header span {
+    font-family: "Permanent Marker", cursive;
+    font-size: 26px;
+    color: #e83268;
+    transform: rotate(-12deg);
+}
+
+.backstage-content p {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #111;
+    margin: 0;
+}
+
+/* =========================
+   BOTON VOLVER A TOP
+========================= */
+
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 50;
+    width: 52px;
+    height: 52px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    color: #fff;
+    background: #111;
+    border: 3px solid #e83268;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0 #e83268;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.back-to-top[hidden] {
+    display: none;
+}
+
+.back-to-top:hover {
+    background: #e83268;
+    transform: translateY(-3px);
+}
+
+.back-to-top:focus-visible {
+    outline: 3px dashed #e83268;
+    outline-offset: 4px;
+}
+
+@media (max-width: 400px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* =========================
+   TP2: FILTRO Y DESPLEGABLES
+========================= */
+
+.tour-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    max-width: 1000px;
+    margin: -30px auto 34px;
+}
+
+.tour-count {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ticket-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #111;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    cursor: pointer;
+}
+
+.ticket-toggle-icon {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #111;
+    border-radius: 50%;
+    background: #FFD447;
+    font-size: 14px;
+    transition: transform 0.25s ease;
+}
+
+.ticket-toggle[aria-expanded="true"] .ticket-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.ticket-detail {
+    padding-top: 10px;
+}
+
+.ticket-tp {
+    padding: 2px 8px;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    font-weight: 800;
+}
+
+@media (max-width: 400px) {
+    .tour-tools {
+        margin-top: -20px;
+    }
+}

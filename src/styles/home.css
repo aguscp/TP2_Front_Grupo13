@@ -1,0 +1,551 @@
+/* =========================================
+   PORTADA — hero y tarjetas de artistas (del TP1)
+========================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 5% 120px;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* TÍTULO */
+
+.hero h1 {
+    font-family: "Permanent Marker", cursive;
+
+    font-size: clamp(80px, 11vw, 150px);
+
+    line-height: 0.9;
+
+    transform: rotate(-3deg);
+
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    font-weight: 700;
+    font-size: clamp(13px, 1.5vw, 18px);
+
+    letter-spacing: 1px;
+
+    margin-bottom: 16px;
+}
+
+.subtitle span {
+    margin: 0 8px;
+}
+
+.hero-description {
+    width: min(100%, 760px);
+    margin: 0 auto 45px;
+    font-size: clamp(14px, 1.25vw, 17px);
+    line-height: 1.7;
+}
+
+
+/* =========================
+   ARTISTAS
+========================= */
+
+.artists {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+
+    width: 100%;
+}
+
+/* CARD */
+
+.artist-card {
+    position: relative;
+    height: 330px;
+    min-height: 330px;
+    padding: 0;
+    perspective: 1000px;
+    transform: rotate(-1deg);
+    transition: transform 0.25s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.artist-card:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+.artist-card:nth-child(3) {
+    transform: rotate(-1.5deg);
+}
+
+.artist-card:nth-child(4) {
+    transform: rotate(1deg);
+}
+
+.artist-card:hover {
+    transform: translateY(-10px) rotate(0deg);
+}
+
+.artist-card:focus-visible {
+    outline: 4px solid #111;
+    outline-offset: 4px;
+}
+
+.artist-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.artist-card.is-flipped .artist-card-inner {
+    transform: rotateY(180deg);
+}
+
+.artist-card-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+    border: 4px solid #111;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.artist-card-back {
+    justify-content: center;
+    gap: 8px;
+    transform: rotateY(180deg);
+    color: #111;
+    text-align: left;
+}
+
+.artist-card-back h2 {
+    font-family: "Permanent Marker", cursive;
+    font-size: 25px;
+    text-align: center;
+}
+
+.artist-details {
+    display: grid;
+    gap: 7px;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.artist-details dt {
+    font-weight: 800;
+}
+
+.artist-details dd {
+    margin: 0;
+}
+
+.flip-hint {
+    align-self: center;
+    font-size: 10px;
+    font-weight: 700;
+    opacity: 0.7;
+}
+
+.profile-link {
+    align-self: center;
+    padding: 5px 12px;
+    border: 2px solid #111;
+    background: #111;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.profile-link:hover,
+.profile-link:focus-visible {
+    background: #f5efd9;
+    color: #111;
+}
+
+.front-hint {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    padding: 2px 6px;
+    border: 1px solid #111;
+    background: #f5efd9;
+    color: #111;
+}
+
+
+/* COLORES */
+
+.artist-card.green {
+    --artist-card-color: #65D98B;
+}
+
+.artist-card.pink {
+    --artist-card-color: #FF4F81;
+}
+
+.artist-card.orange {
+    --artist-card-color: #FF7A45;
+}
+
+.artist-card.yellow {
+    --artist-card-color: #FFD447;
+}
+
+.artist-card-face {
+    background: var(--artist-card-color);
+}
+
+
+/* IMÁGENES */
+
+.artist-image {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    background: #222;
+}
+
+.artist-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.artist-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* NOMBRE ARTISTA */
+
+.artist-info {
+    flex: 0 0 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #fff;
+}
+
+.artist-info h2 {
+    font-family: "Permanent Marker", cursive;
+
+    font-size: clamp(22px, 2.3vw, 32px);
+
+    transform: rotate(-2deg);
+}
+
+.artist-info span {
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 22px;
+}
+
+
+/* BOTÓN */
+
+.explore {
+    margin-top: 45px;
+
+    padding: 17px 40px;
+
+    border: 3px solid #111;
+    border-radius: 10px;
+
+    background: #111;
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.explore:hover {
+    background: #00000000;
+    color: #111;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   DECORACIONES
+========================= */
+
+.decor {
+    position: absolute;
+
+    z-index: 1;
+
+    opacity: 0.95;
+}
+
+
+/* Mancha rosa */
+
+.decor-pink {
+    width: 100px;
+    height: 210px;
+
+    left: -25px;
+    top: 180px;
+
+    background: #FF4F81;
+
+    clip-path: polygon(
+        20% 0,
+        50% 15%,
+        30% 30%,
+        80% 25%,
+        50% 50%,
+        90% 60%,
+        45% 65%,
+        75% 90%,
+        35% 80%,
+        15% 100%,
+        20% 65%,
+        0 50%,
+        20% 35%,
+        0 20%
+    );
+
+    transform: rotate(-8deg);
+}
+
+
+/* Mancha verde */
+
+.decor-green {
+    width: 100px;
+    height: 210px;
+
+    right: -20px;
+    top: 160px;
+
+    background: #65D98B;
+
+    clip-path: polygon(
+        70% 0,
+        100% 20%,
+        75% 35%,
+        100% 45%,
+        70% 55%,
+        100% 70%,
+        65% 70%,
+        75% 100%,
+        45% 75%,
+        35% 100%,
+        30% 70%,
+        0 80%,
+        25% 50%,
+        0 40%,
+        35% 30%,
+        20% 5%
+    );
+
+    transform: rotate(8deg);
+}
+
+
+/* Rayo */
+
+.lightning {
+    position: absolute;
+
+    top: 40px;
+    left: 20%;
+
+    color: #FFD447;
+
+    font-size: 100px;
+    font-weight: bold;
+
+    transform: rotate(-15deg);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+/* Tarjeta como enlace/botón: sin estilos de botón del navegador */
+.artist-card {
+    border: 0;
+    background: none;
+    text-align: inherit;
+    color: inherit;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 45px;
+}
+
+.hero-actions .explore {
+    margin-top: 0;
+}
+
+.explore-outline {
+    background: transparent;
+    color: #111;
+    text-decoration: none;
+}
+
+.explore-outline:hover {
+    background: #111;
+    color: #fff;
+}
+
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto 40px;
+    list-style: none;
+}
+
+.hero-stats li {
+    padding: 8px 16px;
+    border: 3px solid #111;
+    background: #fff;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    transform: rotate(-1.5deg);
+}
+
+.hero-stats li:nth-child(even) {
+    transform: rotate(1.5deg);
+}
+
+.hero-stats strong {
+    color: #e83268;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+    .artists {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 640px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: auto;
+        padding-top: 40px;
+    }
+
+    .lightning {
+        left: 5%;
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 40px 20px 80px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        line-height: 1.8;
+        max-width: 300px;
+        margin: 0 auto 14px;
+    }
+
+    .subtitle span {
+        margin: 0 3px;
+    }
+
+    .artists {
+        gap: 14px;
+    }
+
+    .artist-card {
+        height: 260px;
+        min-height: 260px;
+    }
+
+    .artist-details {
+        font-size: 10px;
+    }
+
+    .decor-pink,
+    .decor-green {
+        width: 60px;
+        height: 140px;
+    }
+
+    .lightning {
+        top: 100px;
+        left: 3%;
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 420px) {
+    .artists {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+    }
+
+    .artist-card {
+        height: 320px;
+        min-height: 320px;
+    }
+
+    .artist-details {
+        font-size: 11px;
+    }
+
+    .hero-actions .explore {
+        width: 100%;
+    }
+}

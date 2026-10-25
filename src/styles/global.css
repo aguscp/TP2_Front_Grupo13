@@ -1,0 +1,329 @@
+/* =========================================
+   GLOBAL — paleta, tipografías y piezas comunes
+   (base heredada del TP1: css/base.css)
+========================================= */
+
+:root {
+    --paper: #F5EFD9;
+    --ink: #111111;
+    --green: #65D98B;
+    --pink: #FF4F81;
+    --orange: #FF7A45;
+    --yellow: #FFD447;
+    --accent: #E83268;
+    --muted: #5c574a;
+    --font-display: "Bebas Neue", sans-serif;
+    --font-marker: "Permanent Marker", cursive;
+    --font-body: "Poppins", sans-serif;
+    --sidebar-width: 260px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 3px dashed var(--accent);
+    outline-offset: 3px;
+}
+
+/* MANCHAS CON LOS COLORES DEL LINE UP */
+
+.festival-splashes {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.festival-splash {
+    position: absolute;
+    display: block;
+    width: clamp(88px, 14vw, 190px);
+    aspect-ratio: 1 / 1.35;
+    opacity: 0.5;
+}
+
+.festival-splash--green {
+    top: 8%;
+    left: -4%;
+    background: #65d98b;
+    clip-path: polygon(42% 0, 71% 17%, 100% 12%, 80% 43%, 95% 65%, 58% 70%, 68% 100%, 36% 81%, 8% 95%, 20% 59%, 0 37%, 31% 31%);
+    transform: rotate(-14deg);
+}
+
+.festival-splash--pink {
+    top: 29%;
+    right: -4%;
+    background: #ff4f81;
+    clip-path: polygon(36% 0, 63% 23%, 100% 9%, 78% 44%, 96% 72%, 60% 70%, 49% 100%, 30% 75%, 0 86%, 18% 53%, 2% 28%);
+    transform: rotate(12deg);
+}
+
+.festival-splash--orange {
+    top: 55%;
+    left: -5%;
+    background: #ff7a45;
+    clip-path: polygon(50% 0, 76% 18%, 100% 37%, 73% 51%, 89% 83%, 53% 72%, 28% 100%, 26% 66%, 0 48%, 32% 38%, 20% 9%);
+    transform: rotate(10deg);
+}
+
+.festival-splash--yellow {
+    top: 78%;
+    right: -5%;
+    background: #ffd447;
+    clip-path: polygon(44% 0, 71% 22%, 100% 17%, 77% 48%, 98% 69%, 64% 72%, 48% 100%, 34% 70%, 0 83%, 20% 51%, 2% 26%);
+    transform: rotate(-11deg);
+}
+
+/* PIE DE PÁGINA */
+
+.site-footer {
+    padding: 32px 5% 22px;
+    background: #111;
+    color: #f5efd9;
+}
+
+.site-footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 18px 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-footer-brand {
+    width: fit-content;
+    color: inherit;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.site-footer-brand span {
+    color: #ffd447;
+}
+
+.site-footer-credit {
+    grid-column: 1;
+    color: #d8d2c3;
+    font-size: 13px;
+}
+
+.site-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 12px 24px;
+}
+
+.site-footer-nav a {
+    color: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.site-footer-nav a:hover {
+    color: #ffd447;
+}
+
+.site-footer-nav a:focus-visible,
+.site-footer-brand:focus-visible {
+    outline: 3px solid #ffd447;
+    outline-offset: 4px;
+}
+
+.site-footer-copyright {
+    grid-column: 1 / -1;
+    padding-top: 14px;
+    border-top: 1px solid #555;
+    color: #d8d2c3;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* =========================================
+   ENCABEZADO DE SECCIÓN (todas las páginas internas)
+========================================= */
+
+.page {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1100px);
+    margin: 0 auto;
+    padding: 56px 5% 80px;
+}
+
+.page-header {
+    margin-bottom: 40px;
+}
+
+.page-kicker {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 4px 12px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.page-title {
+    font-family: var(--font-marker);
+    font-size: clamp(44px, 7vw, 84px);
+    line-height: 1;
+    transform: rotate(-2deg);
+}
+
+.page-intro {
+    max-width: 720px;
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border: 3px solid var(--ink);
+    border-radius: 10px;
+    background: var(--ink);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--ink);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--ink);
+}
+
+.btn-outline:hover {
+    background: var(--ink);
+    color: #fff;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Chips: botones de filtro (bitácora y clima) */
+.tour-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    padding: 8px 16px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    background: #fffdf6;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.chip:hover {
+    transform: translateY(-2px);
+}
+
+.chip[aria-pressed="true"] {
+    background: var(--ink);
+    color: #fff;
+}
+
+/* Navegación al pie de cada sección (seguir / volver) */
+.page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 56px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+    .site-footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .site-footer-brand {
+        margin: 0 auto;
+    }
+
+    .site-footer-nav {
+        justify-content: center;
+    }
+
+    .page-nav .btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

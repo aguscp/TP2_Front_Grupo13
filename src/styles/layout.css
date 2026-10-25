@@ -1,0 +1,27 @@
+/* =========================================
+   LAYOUT — sidebar fija + contenido
+========================================= */
+
+.app-shell {
+    min-height: 100vh;
+}
+
+.app-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+    overflow: hidden;
+}
+
+.app-content {
+    position: relative;
+    flex: 1 0 auto;
+}
+
+@media (max-width: 900px) {
+    .app-main {
+        margin-left: 0;
+    }
+}

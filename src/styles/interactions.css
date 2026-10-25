@@ -1,0 +1,197 @@
+/* =========================================
+   INTERACCIONES DE CADA PERFIL
+========================================= */
+
+/* --- Sebas: medidor de hype --- */
+.hype-meter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: #ffffff;
+    border: 3px solid #111;
+    transform: rotate(-1.5deg);
+    transition: transform 0.2s ease;
+}
+
+.hype-meter:hover {
+    transform: rotate(0deg);
+}
+
+.hype-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 12px;
+    background: #111;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.hype-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    background: var(--profile-color, #65D98B);
+    border: 3px solid #111;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.hype-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.hype-range::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    background: var(--profile-color, #65D98B);
+    border: 3px solid #111;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.hype-range::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+.hype-range:focus-visible {
+    outline: 3px dashed var(--profile-color, #65D98B);
+    outline-offset: 4px;
+}
+
+.hype-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 40px;
+}
+
+.hype-emoji {
+    font-size: 32px;
+}
+
+.hype-text {
+    font-family: "Permanent Marker", cursive;
+    color: #e83268; /* Color de acento usado en el sitio */
+    font-size: 18px;
+    line-height: 1.2;
+}
+/* --- Agus: reproductor ficticio --- */
+.agus-player {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: #FFE3D6;
+    border: 3px solid #111;
+    transform: rotate(1.5deg);
+    transition: transform 0.2s ease;
+}
+
+.agus-player:hover {
+    transform: rotate(0deg);
+}
+
+.agus-player-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 40px;
+}
+
+.agus-now {
+    margin: 0;
+    font-family: "Permanent Marker", cursive;
+    color: #e83268;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+/* Ecualizador: 4 barritas que bailan solo cuando suena */
+.agus-eq {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.agus-eq span {
+    width: 6px;
+    height: 8px;
+    background: var(--profile-color, #FF7A45);
+    border: 2px solid #111;
+}
+
+.agus-player.is-playing .agus-eq span {
+    animation: agus-eq 0.8s ease-in-out infinite alternate;
+}
+
+.agus-player.is-playing .agus-eq span:nth-child(2) { animation-delay: 0.2s; }
+.agus-player.is-playing .agus-eq span:nth-child(3) { animation-delay: 0.4s; }
+.agus-player.is-playing .agus-eq span:nth-child(4) { animation-delay: 0.1s; }
+
+@keyframes agus-eq {
+    from { height: 8px; }
+    to { height: 32px; }
+}
+
+.agus-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .agus-player.is-playing .agus-eq span {
+        animation: none;
+        height: 24px;
+    }
+}
+
+.agus-progress {
+    height: 12px;
+    background: #111;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.agus-progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--profile-color, #FF7A45);
+    transition: width 0.15s linear;
+}
+/* --- Celi: generador de frases (con sus colores propios) --- */
+.profile--celi .profile-skills li:nth-child(even) {
+    background: #FF4F81;
+}
+
+.profile--celi .profile-block--picks {
+    --profile-color: #FF4F81;
+}
+
+.frase-generada {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: #FFD447;
+    border: 3px solid #111;
+    transform: rotate(-1.5deg);
+    transition: transform 0.2s ease;
+}
+
+.frase-generada:hover {
+    transform: rotate(0deg);
+}
+
+.frase-generada .profile-random-result {
+    color: #111111;
+}
