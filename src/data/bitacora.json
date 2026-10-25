@@ -248,5 +248,32 @@
                 "text": "quedarse con Open-Meteo, que no necesita clave, funciona desde el navegador y suma un mensaje de carga, otro de error y un botón para reintentar."
             }
         ]
+    },
+    {
+        "id": "011",
+        "tp": "TP2",
+        "day": "25",
+        "month": "OCT",
+        "year": "2026",
+        "venue": "Estadio Malvinas Argentinas",
+        "city": "Mendoza, Argentina",
+        "title": "Prueba de sonido: la cartelera afinada",
+        "paragraphs": [
+            {
+                "text": "Se recorrió la cartelera en distintos tamaños de pantalla y se encontraron dos detalles que rompían el afiche."
+            },
+            {
+                "label": "Problema",
+                "text": "las tarjetas no medían lo mismo: un nombre largo como \"Los Fabulosos Cadillacs\" ocupaba dos renglones y estiraba sólo esa tarjeta. Además, el detalle de \"Más info\" se desplegaba adentro y desacomodaba toda la grilla."
+            },
+            {
+                "label": "Decisión",
+                "text": "todas las filas toman la altura de la tarjeta más alta y el botón queda siempre abajo. El detalle pasa a una ventana modal (BandModal) que se abre arriba de la cartelera."
+            },
+            {
+                "label": "Aprendizaje del día",
+                "text": "el elemento <dialog> del navegador ya resuelve gran parte de la accesibilidad: atrapa el foco, oscurece el fondo y se cierra con Escape. Sólo sumamos el cierre con la ✕ y con un clic afuera."
+            }
+        ]
     }
 ]
