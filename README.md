@@ -26,10 +26,10 @@
 
 | # | Integrante | GitHub | Perfil en la app | Responsabilidad principal |
 |---|------------|--------|------------------|---------------------------|
-| 01 | Sebastián _(apellido)_ | [@DevJaSeb](https://github.com/DevJaSeb) | `/perfil/sebas` | _(completar)_ |
-| 02 | Valentina _(apellido)_ | [@ValentinaBS](https://github.com/ValentinaBS) | `/perfil/valen` | _(completar)_ |
-| 03 | Agustín _(apellido)_ | [@aguscp](https://github.com/aguscp) | `/perfil/agus` | Repositorio, base en React (rutas, sidebar y layout), cartelera con JSON, API de clima y árbol de componentes |
-| 04 | Celina _(apellido)_ | [@celina-web](https://github.com/celina-web) | `/perfil/celi` | _(completar)_ |
+| 01 | Sebastián Sarango | [@DevJaSeb](https://github.com/DevJaSeb) | `/perfil/sebas` | Perfil propio, componente interactivo `SkillBars` con manejo de estado, corrección de compatibilidad de Vite con Node.js y ocultamiento de scrollbar en sidebar |
+| 02 | Valentina Sánchez | [@ValentinaBS](https://github.com/ValentinaBS) | `/perfil/valen` | _(completar)_ |
+| 03 | Agustín Cisneros | [@aguscp](https://github.com/aguscp) | `/perfil/agus` | Repositorio, base en React (rutas, sidebar y layout), cartelera con JSON, API de clima y árbol de componentes |
+| 04 | Celina Tarn | [@celina-web](https://github.com/celina-web) | `/perfil/celi` | _(completar)_ |
 
 ---
 
@@ -48,7 +48,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 
 ### Interacciones de cada perfil
 
-- **Sebas:** medidor de hype. Un slider cambia el mensaje y el emoji según el nivel de energía.
+- **Sebas:** barras de skills interactivas. Botones + / − suben o bajan el nivel de cada habilidad (del 1 al 5) y aparece un mensaje especial al llegar al máximo.
 - **Valen:** recomendador al azar. Elige una película o un disco favorito y lo resalta en la lista.
 - **Agus:** reproductor ficticio. Play, pausa y siguiente recorren sus discos con un ecualizador animado y una barra de progreso.
 - **Celi:** generador de frases. Muestra una frase al azar de autores hispanos sin repetir la anterior.
@@ -63,7 +63,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 
 - **React 19** con componentes funcionales y hooks (`useState`, `useEffect`).
 - **React Router 7** para la navegación entre secciones.
-- **Vite** como entorno de desarrollo y build.
+- **Vite 6** como entorno de desarrollo y build (compatible con Node.js 18+).
 - **CSS propio**, un archivo por sección, con la paleta y las tipografías del TP1.
 - **Google Fonts:** Bebas Neue, Permanent Marker y Poppins.
 - **Open-Meteo** como API pública.
@@ -73,7 +73,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 
 ## 💻 Cómo correrlo en tu compu
 
-Hace falta tener [Node.js](https://nodejs.org/) instalado.
+Hace falta tener [Node.js](https://nodejs.org/) instalado (versión 18 o superior).
 
 ```bash
 npm install     # instala las dependencias (sólo la primera vez)
@@ -135,12 +135,12 @@ TP2_Front_Grupo13/
 
 Diferenciamos la **aplicación** desde la que trabajamos del **modelo** que usa.
 
-| Integrante | Aplicación | Modelo | Plan | Para qué se usó |
-|------------|------------|--------|------|-----------------|
-| Agustín | Claude (app de escritorio) | Claude Opus 5.5 (Anthropic) | pago | Asistencia en la programación de la estructura en React y las secciones nuevas del TP2. También como guía para entender React |
-| Sebastián | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
-| Valentina | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
-| Celina | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
+| Integrante | Aplicación | Modelo | Para qué se usó |
+|------------|------------|--------|-----------------|
+| Agustín Cisneros | Claude (app de escritorio) | Claude Opus 5.5 (Anthropic) | Asistencia en la programación de la estructura en React y las secciones nuevas del TP2. También como guía para entender React |
+| Sebastián Sarango | Antigravity (Google DeepMind) | Claude Sonnet 4.5 | Generación del componente interactivo `SkillBars`, resolución de errores de compatibilidad de dependencias y ajustes de CSS en el sidebar |
+| Valentina Sánchez | _(completar)_ | _(completar)_ | _(completar)_ |
+| Celina Tarn | _(completar)_ | _(completar)_ | _(completar)_ |
 
 **Revisión propia:** cada sección se probó en el navegador en distintos tamaños de pantalla, se revisó que no hubiera errores en la consola y se ajustaron los contenidos y el diseño con criterio del equipo.
 
