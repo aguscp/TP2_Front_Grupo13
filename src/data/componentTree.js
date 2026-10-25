@@ -172,7 +172,7 @@ const componentTree = {
                                     type: "página",
                                     description: "Registros del proceso con filtro por TP y tickets desplegables.",
                                     children: [
-                                        { id: "ticket-entry", name: "TicketEntry", count: "×10", file: "src/components/TicketEntry.jsx", type: "componente", description: "Cada entrada de la bitácora con forma de ticket." },
+                                        { id: "ticket-entry", name: "TicketEntry", count: "×11", file: "src/components/TicketEntry.jsx", type: "componente", description: "Cada entrada de la bitácora con forma de ticket." },
                                         { id: "merch-card", name: "MerchCard", count: "×3", file: "src/pages/Bitacora.jsx", type: "componente", description: "Productos de la tienda oficial." },
                                         { id: "back-to-top", name: "BackToTop", file: "src/components/BackToTop.jsx", type: "componente", description: "Botón flotante para volver arriba." },
                                     ],
