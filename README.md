@@ -4,9 +4,9 @@
 
 **WebFest 2026** es la aplicación React del Grupo 13. Continúa el sitio del TP1, pensado como el afiche de un festival de música: cada integrante es un "artista" del line up. En esta edición el festival se mudó a React. Ahora tiene una **sidebar** compartida, perfiles armados con un mismo componente, una **cartelera** de bandas cargada desde un JSON local con búsqueda y filtro, el **clima de las sedes** consultado a una API pública, el **árbol de componentes** de la app y la **bitácora** del tour.
 
-🔗 **Sitio publicado en Vercel:** _(pegar acá la URL de Vercel)_
+🔗 **Sitio publicado en Vercel:** https://tp-2-front-grupo13.vercel.app/
 
-📁 **Repositorio:** _(pegar acá la URL del repositorio)_
+📁 **Repositorio:** https://github.com/aguscp/TP2_Front_Grupo13
 
 ---
 
