@@ -48,7 +48,8 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
-    align-items: start;
+    /* Todas las filas miden lo mismo que la tarjeta más alta */
+    grid-auto-rows: 1fr;
 }
 
 /* Cada género tiene su color de la paleta del festival */
@@ -109,7 +110,8 @@
 
 .band-toggle {
     align-self: flex-start;
-    margin-top: 6px;
+    /* Empuja el botón al fondo para que quede alineado en todas las tarjetas */
+    margin-top: auto;
     padding: 6px 12px;
     border: 2px solid var(--ink);
     border-radius: 6px;
