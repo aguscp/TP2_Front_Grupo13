@@ -168,6 +168,114 @@
     background: var(--profile-color, #FF7A45);
     transition: width 0.15s linear;
 }
+/* --- Sebas: barras de skills interactivas --- */
+.skill-bars {
+    display: grid;
+    gap: 18px;
+}
+
+.skill-row {
+    padding: 16px 18px;
+    background: #fff;
+    border: 3px solid #111;
+    display: grid;
+    gap: 10px;
+    transition: transform 0.2s ease;
+}
+
+.skill-row:hover {
+    transform: translateX(4px);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-emoji {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.skill-name {
+    font-weight: 700;
+    font-size: 15px;
+    flex: 1;
+}
+
+.skill-level {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    color: var(--profile-color, #65D98B);
+    letter-spacing: 1px;
+}
+
+.skill-track {
+    display: flex;
+    gap: 6px;
+}
+
+.skill-pip {
+    flex: 1;
+    height: 12px;
+    border: 2px solid #111;
+    border-radius: 3px;
+    background: #e8e2d6;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.skill-pip--on {
+    background: var(--profile-color, #65D98B);
+    transform: scaleY(1.15);
+}
+
+.skill-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.skill-btn {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #111;
+    border-radius: 6px;
+    background: #111;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-btn:hover:not(:disabled) {
+    background: var(--profile-color, #65D98B);
+    color: #111;
+    transform: scale(1.1);
+}
+
+.skill-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.skill-btn:focus-visible {
+    outline: 3px dashed var(--profile-color, #65D98B);
+    outline-offset: 3px;
+}
+
+.skill-max-msg {
+    margin: 0;
+    font-family: "Permanent Marker", cursive;
+    color: #e83268;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
 /* --- Celi: generador de frases (con sus colores propios) --- */
 .profile--celi .profile-skills li:nth-child(even) {
     background: #FF4F81;

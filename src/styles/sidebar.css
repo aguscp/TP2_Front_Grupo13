@@ -15,7 +15,16 @@
     background: var(--ink);
     color: var(--paper);
     border-right: 4px solid var(--accent);
+    /* Ocultar scrollbar manteniendo el scroll funcional */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE / Edge legacy */
 }
+
+/* Chrome, Safari, Opera */
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
 
 .sidebar-brand {
     display: flex;
