@@ -71,13 +71,13 @@
     transform: translateY(-4px) rotate(-0.5deg);
 }
 
-.band-card[data-genre="Rock"] { --band-color: var(--orange); }
-.band-card[data-genre="Rock nacional"] { --band-color: var(--accent); }
-.band-card[data-genre="Indie"] { --band-color: var(--green); }
-.band-card[data-genre="Pop"] { --band-color: var(--pink); }
-.band-card[data-genre="Urbano"] { --band-color: #8f6cf0; }
-.band-card[data-genre="Electrónica"] { --band-color: #33b5e5; }
-.band-card[data-genre="Metal"] { --band-color: var(--ink); }
+[data-genre="Rock"] { --band-color: var(--orange); }
+[data-genre="Rock nacional"] { --band-color: var(--accent); }
+[data-genre="Indie"] { --band-color: var(--green); }
+[data-genre="Pop"] { --band-color: var(--pink); }
+[data-genre="Urbano"] { --band-color: #8f6cf0; }
+[data-genre="Electrónica"] { --band-color: #33b5e5; }
+[data-genre="Metal"] { --band-color: var(--ink); }
 
 .band-genre {
     align-self: flex-start;
@@ -90,7 +90,7 @@
     text-transform: uppercase;
 }
 
-.band-card[data-genre="Metal"] .band-genre {
+[data-genre="Metal"] .band-genre {
     color: #fff;
 }
 
@@ -127,15 +127,88 @@
     color: var(--ink);
 }
 
-.band-detail {
+/* =========================================
+   MODAL — detalle de una banda
+========================================= */
+
+.band-modal {
+    width: min(520px, calc(100% - 32px));
+    max-height: calc(100% - 32px);
+    margin: auto;
+    padding: 0;
+    border: 3px solid var(--ink);
+    border-radius: 6px;
+    background: #fffdf6;
+    color: var(--ink);
+    box-shadow: 8px 8px 0 var(--band-color);
+    overflow: visible;
+}
+
+.band-modal::backdrop {
+    background: rgba(17, 17, 17, 0.6);
+}
+
+.band-modal[open] {
+    animation: modal-in 0.2s ease;
+}
+
+@keyframes modal-in {
+    from { opacity: 0; transform: translateY(12px) rotate(-1deg); }
+    to { opacity: 1; transform: none; }
+}
+
+.band-modal-box {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    max-height: calc(100vh - 38px);
+    padding: 26px;
+    overflow-y: auto;
+}
+
+.band-modal-box .band-genre {
+    justify-self: start;
+}
+
+.band-modal-box .band-name {
+    padding-right: 40px;
+    font-size: 42px;
+}
+
+.band-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.band-modal-close:hover {
+    background: var(--band-color);
+    color: var(--ink);
+}
+
+[data-genre="Metal"] .band-modal-close:hover {
+    border-color: #fff;
+    color: #fff;
+}
+
+.band-facts {
     display: grid;
     gap: 8px;
     padding-top: 12px;
     border-top: 2px dashed #c9c2ad;
-    font-size: 13px;
+    font-size: 14px;
 }
 
-.band-detail dt {
+.band-facts dt {
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
@@ -143,6 +216,7 @@
 }
 
 .band-description {
+    font-size: 14px;
     line-height: 1.6;
 }
 
@@ -195,9 +269,12 @@
     .lineup-tools .btn {
         width: 100%;
     }
-}
 
-.band-facts {
-    display: grid;
-    gap: 8px;
+    .band-modal-box {
+        padding: 20px;
+    }
+
+    .band-modal-box .band-name {
+        font-size: 34px;
+    }
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import lineup from "../data/lineup.json";
 import BandCard from "../components/BandCard.jsx";
+import BandModal from "../components/BandModal.jsx";
 import usePageTitle from "../hooks/usePageTitle.js";
 import "../styles/cartelera.css";
 
@@ -16,7 +17,8 @@ export default function Cartelera() {
     usePageTitle("Cartelera");
     const [search, setSearch] = useState("");
     const [genre, setGenre] = useState("Todos");
-    const [openId, setOpenId] = useState(null);
+    // Banda elegida para ver en el modal (null = modal cerrado).
+    const [selectedBand, setSelectedBand] = useState(null);
 
     // Se recalcula en cada render: búsqueda por texto + filtro por género.
     const results = lineup.filter((band) => {
@@ -31,7 +33,7 @@ export default function Cartelera() {
     const reset = () => {
         setSearch("");
         setGenre("Todos");
-        setOpenId(null);
+        setSelectedBand(null);
     };
 
     return (
@@ -82,8 +84,7 @@ export default function Cartelera() {
                         <BandCard
                             key={band.id}
                             band={band}
-                            isOpen={openId === band.id}
-                            onToggle={() => setOpenId(openId === band.id ? null : band.id)}
+                            onOpen={() => setSelectedBand(band)}
                         />
                     ))}
                 </div>
@@ -94,6 +95,8 @@ export default function Cartelera() {
                     <button type="button" className="btn" onClick={reset}>↺ Ver todas las bandas</button>
                 </div>
             )}
+
+            {selectedBand && <BandModal band={selectedBand} onClose={() => setSelectedBand(null)} />}
 
             <nav className="page-nav" aria-label="Continuar recorrido">
                 <Link to="/" className="btn btn-outline">← Inicio</Link>
