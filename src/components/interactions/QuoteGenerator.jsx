@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "../../i18n/LanguageContext.jsx";
 
 // Celi: muestra una frase al azar de autores hispanos, sin repetir la anterior.
 const quotes = [
@@ -15,6 +16,7 @@ const quotes = [
 ];
 
 export default function QuoteGenerator() {
+    const { t } = useLanguage();
     const [quote, setQuote] = useState(null);
 
     const newQuote = () => {
@@ -24,10 +26,10 @@ export default function QuoteGenerator() {
 
     return (
         <div className="profile-block">
-            <h2>Generador de frases</h2>
+            <h2>{t("Generador de frases")}</h2>
             <div className="profile-random">
                 <button type="button" className="profile-random-btn" onClick={newQuote}>
-                    📚 Generá una frase random
+                    {t("📚 Generá una frase random")}
                 </button>
                 {quote && (
                     <div className="frase-generada">

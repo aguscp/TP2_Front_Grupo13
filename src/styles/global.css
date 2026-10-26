@@ -155,8 +155,28 @@ button {
     color: #ffd447;
 }
 
+.site-footer-language {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    color: #d8d2c3;
+    font-size: 13px;
+}
+
+.site-footer-language select {
+    min-height: 36px;
+    padding: 6px 28px 6px 10px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    background: #1b1b1b;
+    color: #f5efd9;
+    font: inherit;
+}
+
 .site-footer-nav a:focus-visible,
-.site-footer-brand:focus-visible {
+.site-footer-brand:focus-visible,
+.site-footer-language select:focus-visible {
     outline: 3px solid #ffd447;
     outline-offset: 4px;
 }
@@ -310,6 +330,10 @@ button {
     }
 
     .site-footer-nav {
+        justify-content: center;
+    }
+
+    .site-footer-language {
         justify-content: center;
     }
 

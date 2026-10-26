@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import members from "../data/members.json";
 import usePageTitle from "../hooks/usePageTitle.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import PickList from "../components/PickList.jsx";
 import HypeMeter from "../components/interactions/HypeMeter.jsx";
 import RandomPick from "../components/interactions/RandomPick.jsx";
@@ -25,13 +26,15 @@ export default function Profile() {
 }
 
 function ProfileView({ member, index }) {
+    const { t, data } = useLanguage();
+    const translatedMember = data?.members?.[member.slug];
     usePageTitle(member.stageName);
     // Id del elemento resaltado en las listas (lo usan el recomendador y el reproductor).
     const [pickedId, setPickedId] = useState(null);
 
     const movies = member.movies.map((movie, i) => ({
         id: `pelicula-${i}`,
-        kind: "película",
+        kind: t("película"),
         label: `${movie.title} (${movie.year})`,
         title: movie.title,
         extra: `(${movie.year})`,
@@ -39,7 +42,7 @@ function ProfileView({ member, index }) {
 
     const albums = member.albums.map((album, i) => ({
         id: `disco-${i}`,
-        kind: "disco",
+        kind: t("disco"),
         label: `${album.title} — ${album.artist}`,
         title: album.title,
         extra: `— ${album.artist}`,
@@ -52,8 +55,8 @@ function ProfileView({ member, index }) {
         <section className={`profile profile--${member.slug}`} style={{ "--profile-color": member.color }}>
             <div className="profile-poster">
                 <figure className="profile-photo">
-                    <img src={member.photo} alt={member.photoAlt} />
-                    <figcaption>{member.photoCaption}</figcaption>
+                    <img src={member.photo} alt={translatedMember?.photoAlt ?? member.photoAlt} />
+                    <figcaption>{translatedMember?.photoCaption ?? member.photoCaption}</figcaption>
                 </figure>
 
                 <div className="profile-heading">
@@ -63,31 +66,31 @@ function ProfileView({ member, index }) {
                 </div>
             </div>
 
-            <div className="profile-data" aria-label={`Datos de ${member.fullName}`}>
+            <div className="profile-data" aria-label={`${t("Página de")} ${member.fullName}`}>
                 <dl className="profile-facts">
                     <div>
-                        <dt>Ciudad</dt>
+                        <dt>{t("Ciudad")}</dt>
                         <dd>{member.city}</dd>
                     </div>
                     <div>
-                        <dt>Edad</dt>
-                        <dd>{member.age} años</dd>
+                        <dt>{t("Edad")}</dt>
+                        <dd>{member.age} {t("años")}</dd>
                     </div>
                 </dl>
 
-                <p className="profile-bio">{member.bio}</p>
+                <p className="profile-bio">{translatedMember?.bio ?? member.bio}</p>
 
                 <div className="profile-block">
                     <h2>Skills</h2>
                     <ul className="profile-list profile-skills">
                         {member.skills.map((skill) => (
-                            <li key={skill}>{skill}</li>
+                            <li key={skill}>{t(skill)}</li>
                         ))}
                     </ul>
                 </div>
 
-                <PickList title="Películas favoritas" items={movies} pickedId={pickedId} />
-                <PickList title="Discos favoritos" items={albums} pickedId={pickedId} />
+                <PickList title={t("Películas favoritas")} items={movies} pickedId={pickedId} />
+                <PickList title={t("Discos favoritos")} items={albums} pickedId={pickedId} />
 
                 {/* Cada integrante tiene su propia interacción */}
                 {member.interaction === "hype" && <HypeMeter />}
@@ -99,11 +102,11 @@ function ProfileView({ member, index }) {
                 {member.interaction === "skills" && <SkillBars />}
             </div>
 
-            <nav className="profile-actions" aria-label="Navegación entre perfiles">
+            <nav className="profile-actions" aria-label={t("Navegación entre perfiles")}>
                 <Link to={`/perfil/${previous.slug}`} className="profile-btn profile-btn-outline">
                     ← {previous.stageName}
                 </Link>
-                <Link to="/" className="profile-btn">Volver al line up</Link>
+                <Link to="/" className="profile-btn">{t("Volver al line up")}</Link>
                 <Link to={`/perfil/${next.slug}`} className="profile-btn profile-btn-outline">
                     {next.stageName} →
                 </Link>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { describeWeather } from "../data/weatherCodes.js";
 import usePageTitle from "../hooks/usePageTitle.js";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 import "../styles/weather.css";
 
 // Sedes del tour (las mismas ciudades de la bitácora) con sus coordenadas.
@@ -25,15 +26,9 @@ function buildUrl(venue) {
     return `${API_URL}?${params}`;
 }
 
-// Recomendación según la probabilidad de lluvia del día.
-function festivalTip(rainChance) {
-    if (rainChance >= 60) return "Llevá piloto: hay muchas chances de pogo en el barro.";
-    if (rainChance >= 30) return "Puede caer algo. Un piloto en la mochila no ocupa lugar.";
-    return "Día de festival: protector solar, agua y a disfrutar.";
-}
-
 export default function Weather() {
-    usePageTitle("Clima del festival");
+    const { t, language } = useLanguage();
+    usePageTitle(t("Clima del festival"));
     const [venueId, setVenueId] = useState(venues[0].id);
     const [status, setStatus] = useState("loading"); // "loading" | "error" | "success"
     const [forecast, setForecast] = useState(null);
@@ -52,7 +47,7 @@ export default function Weather() {
             try {
                 const response = await fetch(buildUrl(venue), { signal: controller.signal });
                 if (!response.ok) {
-                    throw new Error(`La API respondió con el código ${response.status}`);
+                    throw new Error(`HTTP ${response.status}`);
                 }
                 const data = await response.json();
                 setForecast(data);
@@ -74,19 +69,19 @@ export default function Weather() {
     return (
         <section className="page">
             <header className="page-header">
-                <span className="page-kicker">API PÚBLICA · OPEN-METEO</span>
-                <h1 className="page-title">Clima del festival</h1>
+                <span className="page-kicker">{t("API PÚBLICA · OPEN-METEO")}</span>
+                <h1 className="page-title">{t("Clima del festival")}</h1>
                 <p className="page-intro">
-                    Antes de armar la mochila, consultamos la API pública y gratuita de{" "}
-                    <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a>. Nos da
-                    el clima actual y el pronóstico de los próximos 3 días (temperatura, estado del cielo y
-                    probabilidad de lluvia) para cada sede del tour. No necesita clave, así que se consulta
-                    directo desde el navegador.
+                    {language === "en" ? (
+                        <>Before packing, we check the free, public <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> API. It provides current weather and a 3-day forecast (temperature, sky conditions, and chance of rain) for each tour venue. No API key is required, so it can be called directly from the browser.</>
+                    ) : (
+                        <>Antes de armar la mochila, consultamos la API pública y gratuita de <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a>. Nos da el clima actual y el pronóstico de los próximos 3 días (temperatura, estado del cielo y probabilidad de lluvia) para cada sede del tour. No necesita clave, así que se consulta directo desde el navegador.</>
+                    )}
                 </p>
             </header>
 
             <div className="weather-tools">
-                <div className="tour-filter" role="group" aria-label="Elegir sede">
+                <div className="tour-filter" role="group" aria-label={t("Elegir sede")}>
                     {venues.map((item) => (
                         <button
                             key={item.id}
@@ -99,24 +94,22 @@ export default function Weather() {
                         </button>
                     ))}
                 </div>
-                <button type="button" className="btn btn-outline" onClick={retry} disabled={status === "loading"}>
-                    ↻ Actualizar
-                </button>
+                <button type="button" className="btn btn-outline" onClick={retry} disabled={status === "loading"}>{t("↻ Actualizar")}</button>
             </div>
 
             <div className="weather-panel" aria-live="polite" aria-busy={status === "loading"}>
                 {status === "loading" && (
                     <div className="weather-state">
                         <span className="weather-spinner" aria-hidden="true"></span>
-                        <p>Consultando el pronóstico para {venue.city}...</p>
+                        <p>{t("Consultando el pronóstico para {city}...", { city: venue.city })}</p>
                     </div>
                 )}
 
                 {status === "error" && (
                     <div className="weather-state weather-state--error" role="alert">
-                        <p className="weather-state-title">⚡ Se cortó el sonido</p>
-                        <p>No pudimos traer el clima ({error}). Revisá tu conexión y probá de nuevo.</p>
-                        <button type="button" className="btn" onClick={retry}>Reintentar</button>
+                        <p className="weather-state-title">{t("⚡ Se cortó el sonido")}</p>
+                        <p>{t("No pudimos traer el clima ({error}). Revisá tu conexión y probá de nuevo.", { error })}</p>
+                        <button type="button" className="btn" onClick={retry}>{t("Reintentar")}</button>
                     </div>
                 )}
 
@@ -125,15 +118,16 @@ export default function Weather() {
                 )}
             </div>
 
-            <nav className="page-nav" aria-label="Continuar recorrido">
-                <Link to="/cartelera" className="btn btn-outline">← Cartelera</Link>
-                <Link to="/arbol" className="btn">Árbol de componentes →</Link>
+            <nav className="page-nav" aria-label={t("Continuar recorrido")}>
+                <Link to="/cartelera" className="btn btn-outline">{t("← Cartelera")}</Link>
+                <Link to="/arbol" className="btn">{t("Árbol de componentes →")}</Link>
             </nav>
         </section>
     );
 }
 
 function WeatherResult({ venue, forecast }) {
+    const { t, language } = useLanguage();
     const now = forecast.current;
     const today = describeWeather(now.weather_code);
     const days = forecast.daily.time.map((date, index) => ({
@@ -152,26 +146,32 @@ function WeatherResult({ venue, forecast }) {
                     <p className="weather-temp">
                         <span aria-hidden="true">{today.icon}</span> {Math.round(now.temperature_2m)}°C
                     </p>
-                    <p>{today.label} · Sensación térmica {Math.round(now.apparent_temperature)}°C · Viento {Math.round(now.wind_speed_10m)} km/h</p>
+                    <p>{t(today.label)} · {t("Sensación térmica")} {Math.round(now.apparent_temperature)}°C · {t("Viento")} {Math.round(now.wind_speed_10m)} km/h</p>
                 </div>
-                <p className="weather-tip">{festivalTip(days[0].rain)}</p>
+                <p className="weather-tip">
+                    {t(days[0].rain >= 60
+                        ? "Llevá piloto: hay muchas chances de pogo en el barro."
+                        : days[0].rain >= 30
+                            ? "Puede caer algo. Un piloto en la mochila no ocupa lugar."
+                            : "Día de festival: protector solar, agua y a disfrutar.")}
+                </p>
             </article>
 
             <ul className="weather-days">
                 {days.map((day) => (
                     <li key={day.date} className="weather-day">
                         <p className="weather-day-name">
-                            {new Date(`${day.date}T12:00`).toLocaleDateString("es-AR", { weekday: "long", day: "numeric", month: "short" })}
+                            {new Date(`${day.date}T12:00`).toLocaleDateString(language === "en" ? "en-US" : "es-AR", { weekday: "long", day: "numeric", month: "short" })}
                         </p>
                         <p className="weather-day-icon" aria-hidden="true">{day.weather.icon}</p>
-                        <p>{day.weather.label}</p>
+                        <p>{t(day.weather.label)}</p>
                         <p className="weather-day-temps">{day.max}° / {day.min}°</p>
-                        <p>💧 {day.rain}% de lluvia</p>
+                        <p>{t("💧 {rain}% de lluvia", { rain: day.rain })}</p>
                     </li>
                 ))}
             </ul>
 
-            <p className="weather-source">Datos actualizados: {now.time.replace("T", " ")} hs · Fuente: Open-Meteo</p>
+            <p className="weather-source">{t("Datos actualizados: {time} hs · Fuente: Open-Meteo", { time: now.time.replace("T", " ") })}</p>
         </>
     );
 }

@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useLanguage } from "../../i18n/LanguageContext.jsx";
 
 // Valen: elige al azar una película o un disco, lo anuncia y lo resalta en la lista.
 // "items" llega por props; "onPick" avisa al perfil qué elemento resaltar.
 export default function RandomPick({ items, onPick }) {
+    const { t } = useLanguage();
     const [last, setLast] = useState(null);
 
     const pickRandom = () => {
@@ -15,10 +17,10 @@ export default function RandomPick({ items, onPick }) {
     return (
         <div className="profile-random">
             <button type="button" className="profile-random-btn" onClick={pickRandom}>
-                🎲 ¿Qué escucho / veo hoy?
+                🎲 {t("¿Qué escucho / veo hoy?")}
             </button>
             <p className="profile-random-result" aria-live="polite">
-                {last && `Hoy toca ${last.kind}: ${last.label}`}
+                {last && `${t("Hoy toca")} ${last.kind}: ${last.label}`}
             </p>
         </div>
     );
