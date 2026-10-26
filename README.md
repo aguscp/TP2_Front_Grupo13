@@ -57,6 +57,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 
 [Open-Meteo](https://open-meteo.com/) es una API de clima gratuita que **no necesita clave**, así que se consulta directo desde el navegador sin exponer datos privados. Aporta la temperatura actual, la sensación térmica, el viento, el estado del cielo y la probabilidad de lluvia de los próximos 3 días para las coordenadas de cada sede.
 
+![API de clima incorporada en nuestra web](public/img/imagen-open-meteo.png)
 ---
 
 ## 🛠️ Tecnologías
