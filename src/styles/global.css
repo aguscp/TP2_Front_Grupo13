@@ -139,6 +139,7 @@ button {
 
 .site-footer-nav {
     display: flex;
+    grid-column: 2;
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 12px 24px;
@@ -158,7 +159,9 @@ button {
 .site-footer-language {
     display: flex;
     align-items: center;
+    grid-column: 2;
     justify-content: flex-end;
+    justify-self: end;
     gap: 10px;
     color: #d8d2c3;
     font-size: 13px;
@@ -330,11 +333,14 @@ button {
     }
 
     .site-footer-nav {
+        grid-column: auto;
         justify-content: center;
     }
 
     .site-footer-language {
+        grid-column: auto;
         justify-content: center;
+        justify-self: center;
     }
 
     .site-footer-credit {
