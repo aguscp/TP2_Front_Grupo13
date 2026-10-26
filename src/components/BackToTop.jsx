@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 
 // Botón flotante que aparece al bajar y lleva al principio de la página.
 export default function BackToTop() {
+    const { t } = useLanguage();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -17,7 +19,7 @@ export default function BackToTop() {
         <button
             type="button"
             className="back-to-top"
-            aria-label="Volver al principio de la página"
+            aria-label={t("Volver al principio de la página")}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
             ↑

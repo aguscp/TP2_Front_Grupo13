@@ -29,7 +29,7 @@
 | 01 | Sebastián Sarango | [@DevJaSeb](https://github.com/DevJaSeb) | `/perfil/sebas` | Perfil propio, componente interactivo `SkillBars` con manejo de estado, corrección de compatibilidad de Vite con Node.js y ocultamiento de scrollbar en sidebar |
 | 02 | Valentina Sánchez | [@ValentinaBS](https://github.com/ValentinaBS) | `/perfil/valen` | Perfil propio con la interacción `RandomPick`. Rediseño de la cartelera: tarjetas con la misma altura y detalle de cada banda en un modal (`BandModal`, con `<dialog>`). Revisión responsive y de accesibilidad (foco, cierre con Escape, atributos `aria`). Actualización del árbol de componentes y entrada de la bitácora |
 | 03 | Agustín Cisneros | [@aguscp](https://github.com/aguscp) | `/perfil/agus` | Repositorio, base en React (rutas, sidebar y layout), cartelera con JSON, API de clima y árbol de componentes |
-| 04 | Celina Tarn | [@celina-web](https://github.com/celina-web) | `/perfil/celi` | _(completar)_ |
+| 04 | Celina Tarn | [@celina-web](https://github.com/celina-web) | `/perfil/celi` | Desarrollo del perfil propio con interacción de un generador de frases. Implementación del soporte multidioma, incorporando la versión en inglés de la web y un selector de idioma en el footer. Revisión y corrección de errores en las traducciones.  |
 
 ---
 
@@ -106,11 +106,14 @@ TP2_Front_Grupo13/
     │   ├── TicketEntry.jsx # Ticket de la bitácora
     │   ├── BackToTop.jsx   # Botón flotante para volver arriba
     │   └── interactions/   # La interacción de cada perfil
-    ├── pages/              # Una página por ruta
-    ├── data/               # members.json, lineup.json, bitacora.json y el árbol
-    ├── hooks/              # usePageTitle: título de la pestaña por sección
-    └── styles/             # CSS global y de cada sección
+    ├── pages/              # Una página por ruta (inicio, perfiles, cartelera, clima, árbol, bitácora)
+    ├── data/               # Datos de integrantes, bandas, bitácora, árbol y códigos de clima
+    ├── i18n/                # Idiomas: en.json y LanguageContext.jsx
+    ├── hooks/               # usePageTitle: título de la pestaña por sección
+    └── styles/              # CSS global y de cada sección
 ```
+
+La traducción al inglés se centraliza en `src/i18n/en.json`. `LanguageContext.jsx` administra el idioma seleccionado en el footer, guarda la preferencia en el navegador y deja español como idioma predeterminado.
 
 ---
 
@@ -141,7 +144,7 @@ Diferenciamos la **aplicación** desde la que trabajamos del **modelo** que usa.
 | Agustín Cisneros | Claude (app de escritorio) | Claude Opus 5.5 (Anthropic) | Asistencia en la programación de la estructura en React y las secciones nuevas del TP2. También como guía para entender React |
 | Sebastián Sarango | Antigravity (Google DeepMind) | Claude Sonnet 4.5 | Generación del componente interactivo `SkillBars`, resolución de errores de compatibilidad de dependencias y ajustes de CSS en el sidebar |
 | Valentina Sánchez | Claude Code (app de escritorio) | Claude Opus 5.5 (Anthropic) |  Utilizado para evaluar alternativas del rediseño de la cartelera. También para redactar parte del README y la entrada de la bitácora |
-| Celina Tarn | _(completar)_ | _(completar)_ | _(completar)_ |
+| Celina Tarn | GitHub Copilot | GPT-6 Luna | Incorporación de soporte para inglés en la web, con un selector de idioma en el footer. |
 
 **Revisión propia:** cada sección se probó en el navegador en distintos tamaños de pantalla, se revisó que no hubiera errores en la consola y se ajustaron los contenidos y el diseño con criterio del equipo.
 

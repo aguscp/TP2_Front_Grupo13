@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "../../i18n/LanguageContext.jsx";
 
 // Sebas: un slider que cambia el mensaje y el emoji según el nivel de hype.
 const levels = [
@@ -10,14 +11,15 @@ const levels = [
 ];
 
 export default function HypeMeter() {
+    const { t } = useLanguage();
     const [hype, setHype] = useState(0);
     const level = levels.find((item) => hype < item.max);
 
     return (
         <div className="profile-block">
-            <h2>Medidor de Hype</h2>
+            <h2>{t("Medidor de Hype")}</h2>
             <div className="hype-meter">
-                <label htmlFor="hype-range" className="sr-only">Nivel de hype</label>
+                <label htmlFor="hype-range" className="sr-only">{t("Nivel de hype")}</label>
                 <input
                     type="range"
                     id="hype-range"
@@ -29,7 +31,7 @@ export default function HypeMeter() {
                 />
                 <div className="hype-result" aria-live="polite">
                     <span className="hype-emoji">{level.emoji}</span>
-                    <span className="hype-text">{level.text}</span>
+                    <span className="hype-text">{t(level.text)}</span>
                 </div>
             </div>
         </div>

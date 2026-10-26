@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "../../i18n/LanguageContext.jsx";
 
 // Sebas: barras de skills interactivas con botones + / −
 // Cada skill tiene un nivel del 1 al 5 y un mensaje distinto al llegar al máximo.
@@ -29,6 +30,7 @@ const SKILLS = [
 const MAX = 5;
 
 export default function SkillBars() {
+    const { t } = useLanguage();
     // Estado: un objeto { "HTML y CSS": 3, "JavaScript": 2, ... }
     const [levels, setLevels] = useState(
         Object.fromEntries(SKILLS.map((s) => [s.name, 3]))
@@ -43,7 +45,7 @@ export default function SkillBars() {
 
     return (
         <div className="profile-block">
-            <h2>Skills — ¿En qué nivel estoy hoy?</h2>
+            <h2>{t("Skills — ¿En qué nivel estoy hoy?")}</h2>
             <div className="skill-bars">
                 {SKILLS.map((skill) => {
                     const lvl = levels[skill.name];
@@ -52,13 +54,13 @@ export default function SkillBars() {
                         <div key={skill.name} className="skill-row">
                             <div className="skill-header">
                                 <span className="skill-emoji">{skill.emoji}</span>
-                                <span className="skill-name">{skill.name}</span>
+                                <span className="skill-name">{t(skill.name)}</span>
                                 <span className="skill-level">
                                     {lvl}/{MAX}
                                 </span>
                             </div>
 
-                            <div className="skill-track" aria-label={`Nivel de ${skill.name}: ${lvl} de ${MAX}`}>
+                            <div className="skill-track" aria-label={`${t("Nivel de")} ${skill.name}: ${lvl} ${t("de")} ${MAX}`}>
                                 {Array.from({ length: MAX }, (_, i) => (
                                     <span
                                         key={i}
@@ -72,7 +74,7 @@ export default function SkillBars() {
                                     className="skill-btn"
                                     onClick={() => change(skill.name, -1)}
                                     disabled={lvl === 1}
-                                    aria-label={`Bajar nivel de ${skill.name}`}
+                                    aria-label={`${t("Bajar nivel de")} ${skill.name}`}
                                 >
                                     −
                                 </button>
@@ -80,7 +82,7 @@ export default function SkillBars() {
                                     className="skill-btn"
                                     onClick={() => change(skill.name, +1)}
                                     disabled={isMax}
-                                    aria-label={`Subir nivel de ${skill.name}`}
+                                    aria-label={`${t("Subir nivel de")} ${skill.name}`}
                                 >
                                     +
                                 </button>
@@ -88,7 +90,7 @@ export default function SkillBars() {
 
                             {isMax && (
                                 <p className="skill-max-msg" aria-live="polite">
-                                    🏆 {skill.maxMsg}
+                                    🏆 {t(skill.maxMsg)}
                                 </p>
                             )}
                         </div>

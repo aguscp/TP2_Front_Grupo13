@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import members from "../data/members.json";
+import { useLanguage } from "../i18n/LanguageContext.jsx";
 
 // Ventana modal con el detalle de una banda de la cartelera.
 export default function BandModal({ band, onClose }) {
+    const { t, data } = useLanguage();
     const dialogRef = useRef(null);
     const fan = members.find((member) => member.slug === band.recommendedBy);
     const titleId = `modal-banda-${band.id}`;
@@ -33,31 +35,31 @@ export default function BandModal({ band, onClose }) {
             onClick={handleClick}
         >
             <div className="band-modal-box">
-                <button type="button" className="band-modal-close" onClick={onClose} aria-label="Cerrar detalle">
+                <button type="button" className="band-modal-close" onClick={onClose} aria-label={t("Cerrar detalle")}>
                     ✕
                 </button>
 
-                <span className="band-genre">{band.genre}</span>
+                <span className="band-genre">{data?.genres?.[band.genre] ?? band.genre}</span>
                 <h2 className="band-name" id={titleId}>{band.name}</h2>
                 <p className="band-when">
-                    {band.day} - {band.time} hs - {band.stage}
+                    {t(band.day)} - {band.time} {t("hs")} - {t(band.stage)}
                 </p>
 
                 <dl className="band-facts">
                     <div>
-                        <dt>Origen</dt>
-                        <dd>{band.country}</dd>
+                        <dt>{t("Origen")}</dt>
+                        <dd>{t(band.country)}</dd>
                     </div>
                     <div>
-                        <dt>Disco para escuchar antes</dt>
+                        <dt>{t("Disco para escuchar antes")}</dt>
                         <dd>{band.album}</dd>
                     </div>
                 </dl>
-                <p className="band-description">{band.description}</p>
+                <p className="band-description">{data?.lineup?.[band.id] ?? band.description}</p>
 
                 {fan && (
                     <Link to={`/perfil/${fan.slug}`} className="band-fan" style={{ "--fan-color": fan.color }}>
-                        ★ Elegida por {fan.stageName} - Ver Perfil →
+                        {t("★ Elegida por")} {fan.stageName}{t(" - Ver Perfil →")}
                     </Link>
                 )}
             </div>

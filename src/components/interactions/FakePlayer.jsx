@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useLanguage } from "../../i18n/LanguageContext.jsx";
 
 // Agus: reproductor ficticio que recorre sus discos favoritos.
 // Play/Pausa anima el ecualizador y la barra; al llenarse, pasa al siguiente disco.
 export default function FakePlayer({ albums, onPick }) {
+    const { t } = useLanguage();
     const [current, setCurrent] = useState(0);
     const [progress, setProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -43,14 +45,14 @@ export default function FakePlayer({ albums, onPick }) {
 
     return (
         <div className="profile-block">
-            <h2>Sonando ahora</h2>
+            <h2>{t("Sonando ahora")}</h2>
             <div className={`agus-player${isPlaying ? " is-playing" : ""}`}>
                 <div className="agus-player-info">
                     <div className="agus-eq" aria-hidden="true">
                         <span></span><span></span><span></span><span></span>
                     </div>
                     <p className="agus-now" aria-live="polite">
-                        {started ? `🎧 ${albums[current].label}` : "Elegí play para arrancar el show"}
+                        {started ? `🎧 ${albums[current].label}` : t("Elegí play para arrancar el show")}
                     </p>
                 </div>
                 <div className="agus-progress" aria-hidden="true">
@@ -58,10 +60,10 @@ export default function FakePlayer({ albums, onPick }) {
                 </div>
                 <div className="agus-controls">
                     <button type="button" className="profile-random-btn" onClick={togglePlay}>
-                        {isPlaying ? "⏸ Pausa" : "▶ Play"}
+                        {isPlaying ? t("⏸ Pausa") : "▶ Play"}
                     </button>
                     <button type="button" className="profile-random-btn" onClick={next}>
-                        ⏭ Siguiente
+                        {t("⏭ Siguiente")}
                     </button>
                 </div>
             </div>

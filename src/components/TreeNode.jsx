@@ -1,6 +1,9 @@
+import { useLanguage } from "../i18n/LanguageContext.jsx";
+
 // Un nodo del árbol de componentes. Si tiene hijos, se puede expandir o contraer,
 // y para dibujarlos se usa a sí mismo (componente recursivo).
 export default function TreeNode({ node, openIds, onToggle }) {
+    const { t, data } = useLanguage();
     const hasChildren = Boolean(node.children?.length);
     const isOpen = openIds.includes(node.id);
 
@@ -12,7 +15,7 @@ export default function TreeNode({ node, openIds, onToggle }) {
                         type="button"
                         className="tree-toggle"
                         aria-expanded={isOpen}
-                        aria-label={`${isOpen ? "Contraer" : "Expandir"} ${node.name}`}
+                        aria-label={`${t(isOpen ? "Contraer" : "Expandir")} ${node.name}`}
                         onClick={() => onToggle(node.id)}
                     >
                         {isOpen ? "−" : "+"}
@@ -26,13 +29,13 @@ export default function TreeNode({ node, openIds, onToggle }) {
                         {`<${node.name.split(" ")[0]}>`}
                         {node.name.includes(" ") && <span className="tree-aside"> {node.name.slice(node.name.indexOf(" ") + 1)}</span>}
                         {node.count && <span className="tree-count">{node.count}</span>}
-                        <span className="tree-type">{node.type}</span>
+                        <span className="tree-type">{t(node.type)}</span>
                     </p>
-                    <p className="tree-description">{node.description}</p>
+                    <p className="tree-description">{data?.tree?.[node.id] ?? node.description}</p>
                     {(node.file || node.route) && (
                         <p className="tree-meta">
                             {node.file && <code>{node.file}</code>}
-                            {node.route && <code>ruta: {node.route}</code>}
+                            {node.route && <code>{t("ruta:")} {node.route}</code>}
                         </p>
                     )}
                 </div>
