@@ -11,6 +11,8 @@ export default function Footer() {
                 <nav className="site-footer-nav" aria-label="Navegación del pie de página">
                     <Link to="/">Inicio</Link>
                     <Link to="/cartelera">Cartelera</Link>
+                    <Link to="/clima">Clima</Link>
+                    <Link to="/arbol">Árbol</Link>
                     <Link to="/bitacora">Bitácora</Link>
                 </nav>
                 <small className="site-footer-copyright">© 2026 Grupo 13</small>

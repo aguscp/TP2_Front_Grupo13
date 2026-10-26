@@ -110,7 +110,7 @@ button {
 
 .site-footer-inner {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
     gap: 18px 32px;
     max-width: 1200px;
@@ -299,7 +299,7 @@ button {
     white-space: nowrap;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .site-footer-inner {
         grid-template-columns: 1fr;
         text-align: center;
@@ -311,6 +311,10 @@ button {
 
     .site-footer-nav {
         justify-content: center;
+    }
+
+    .site-footer-credit {
+        grid-column: auto;
     }
 
     .page-nav .btn {
