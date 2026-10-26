@@ -106,11 +106,14 @@ TP2_Front_Grupo13/
     │   ├── TicketEntry.jsx # Ticket de la bitácora
     │   ├── BackToTop.jsx   # Botón flotante para volver arriba
     │   └── interactions/   # La interacción de cada perfil
-    ├── pages/              # Una página por ruta
-    ├── data/               # members.json, lineup.json, bitacora.json y el árbol
-    ├── hooks/              # usePageTitle: título de la pestaña por sección
-    └── styles/             # CSS global y de cada sección
+    ├── pages/              # Una página por ruta (inicio, perfiles, cartelera, clima, árbol, bitácora)
+    ├── data/               # Datos de integrantes, bandas, bitácora, árbol y códigos de clima
+    ├── i18n/                # Idiomas: en.json y LanguageContext.jsx
+    ├── hooks/               # usePageTitle: título de la pestaña por sección
+    └── styles/              # CSS global y de cada sección
 ```
+
+La traducción al inglés se centraliza en `src/i18n/en.json`. `LanguageContext.jsx` administra el idioma seleccionado en el footer, guarda la preferencia en el navegador y deja español como idioma predeterminado.
 
 ---
 
