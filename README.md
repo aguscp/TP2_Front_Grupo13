@@ -29,7 +29,7 @@
 | 01 | Sebastián Sarango | [@DevJaSeb](https://github.com/DevJaSeb) | `/perfil/sebas` | Perfil propio, componente interactivo `SkillBars` con manejo de estado, corrección de compatibilidad de Vite con Node.js y ocultamiento de scrollbar en sidebar |
 | 02 | Valentina Sánchez | [@ValentinaBS](https://github.com/ValentinaBS) | `/perfil/valen` | Perfil propio con la interacción `RandomPick`. Rediseño de la cartelera: tarjetas con la misma altura y detalle de cada banda en un modal (`BandModal`, con `<dialog>`). Revisión responsive y de accesibilidad (foco, cierre con Escape, atributos `aria`). Actualización del árbol de componentes y entrada de la bitácora |
 | 03 | Agustín Cisneros | [@aguscp](https://github.com/aguscp) | `/perfil/agus` | Repositorio, base en React (rutas, sidebar y layout), cartelera con JSON, API de clima y árbol de componentes |
-| 04 | Celina Tarn | [@celina-web](https://github.com/celina-web) | `/perfil/celi` | Desarrollo del perfil propio con interacción de un generador de frases. Implementación del soporte multidioma, incorporando la versión en inglés de la web y un selector de idioma en el footer. Revisión y corrección de errores en las traducciones.  |
+| 04 | Celina Tarn | [@celina-web](https://github.com/celina-web) | `/perfil/celi` | Desarrollo del perfil propio con interacción de un mini-piano. Implementación del soporte multidioma, incorporando la versión en inglés de la web y un selector de idioma en el footer. Revisión y corrección de errores en las traducciones.  |
 
 ---
 
@@ -51,7 +51,7 @@ Todas las secciones se recorren desde la **sidebar**, que muestra la identidad d
 - **Sebas:** barras de skills interactivas (`SkillBars`). Permite regular el nivel de dominio (1 a 5) en cada tecnología con botones + / −, indicadores visuales de progreso y mensajes motivacionales dinámicos al alcanzar el nivel máximo.
 - **Valen:** recomendador al azar. Elige una película o un disco favorito y lo resalta en la lista.
 - **Agus:** reproductor ficticio. Play, pausa y siguiente recorren sus discos con un ecualizador animado y una barra de progreso.
-- **Celi:** generador de frases. Muestra una frase al azar de autores hispanos sin repetir la anterior.
+- **Celi:** mini piano. Un piano interactivo donde al presionar una tecla, muestra su nota musical.
 
 ### API pública: Open-Meteo
 
@@ -145,7 +145,7 @@ Diferenciamos la **aplicación** desde la que trabajamos del **modelo** que usa.
 | Agustín Cisneros | Claude (app de escritorio) | Claude Opus 5.5 (Anthropic) | Asistencia en la programación de la estructura en React y las secciones nuevas del TP2. También como guía para entender React |
 | Sebastián Sarango | Antigravity (Google DeepMind) | Claude Sonnet 4.5 | Generación del componente interactivo `SkillBars`, resolución de errores de compatibilidad de dependencias y ajustes de CSS en el sidebar |
 | Valentina Sánchez | Claude Code (app de escritorio) | Claude Opus 5.5 (Anthropic) |  Utilizado para evaluar alternativas del rediseño de la cartelera. También para redactar parte del README y la entrada de la bitácora |
-| Celina Tarn | GitHub Copilot | GPT-6 Luna | Incorporación de soporte para inglés en la web, con un selector de idioma en el footer. |
+| Celina Tarn | GitHub Copilot | GPT-6 Luna | Incorporación de soporte para inglés en la web. Estructurá para la interacción mini piano del perfil personal |
 
 **Revisión propia:** cada sección se probó en el navegador en distintos tamaños de pantalla, se revisó que no hubiera errores en la consola y se ajustaron los contenidos y el diseño con criterio del equipo.
 
