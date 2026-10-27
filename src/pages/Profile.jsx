@@ -7,7 +7,7 @@ import PickList from "../components/PickList.jsx";
 import HypeMeter from "../components/interactions/HypeMeter.jsx";
 import RandomPick from "../components/interactions/RandomPick.jsx";
 import FakePlayer from "../components/interactions/FakePlayer.jsx";
-import QuoteGenerator from "../components/interactions/QuoteGenerator.jsx";
+import MiniPiano from "../components/interactions/MiniPiano.jsx";
 import SkillBars from "../components/interactions/SkillBars.jsx";
 import NotFound from "./NotFound.jsx";
 import "../styles/profile.css";
@@ -98,7 +98,7 @@ function ProfileView({ member, index }) {
                     <RandomPick items={[...movies, ...albums]} onPick={setPickedId} />
                 )}
                 {member.interaction === "player" && <FakePlayer albums={albums} onPick={setPickedId} />}
-                {member.interaction === "quotes" && <QuoteGenerator />}
+                {member.interaction === "piano" && <MiniPiano />}
                 {member.interaction === "skills" && <SkillBars />}
             </div>
 

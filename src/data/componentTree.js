@@ -90,7 +90,7 @@ const componentTree = {
                                                         { id: "skills", name: "SkillBars", file: "src/components/interactions/SkillBars.jsx", type: "componente", description: "Sebas: barras de skills interactivas con niveles del 1 al 5 y mensajes al alcanzar el máximo." },
                                                         { id: "random", name: "RandomPick", file: "src/components/interactions/RandomPick.jsx", type: "componente", description: "Valen: recomendador al azar de película o disco." },
                                                         { id: "player", name: "FakePlayer", file: "src/components/interactions/FakePlayer.jsx", type: "componente", description: "Agus: reproductor ficticio de sus discos." },
-                                                        { id: "quotes", name: "QuoteGenerator", file: "src/components/interactions/QuoteGenerator.jsx", type: "componente", description: "Celi: generador de frases de autores hispanos." },
+                                                        { id: "piano", name: "MiniPiano", file: "src/components/interactions/MiniPiano.jsx", type: "componente", description: "Celi: mini piano adaptable que muestra la nota de cada tecla." },
                                                     ],
                                                 },
                                             ],
