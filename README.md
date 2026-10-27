@@ -145,7 +145,7 @@ Diferenciamos la **aplicación** desde la que trabajamos del **modelo** que usa.
 | Agustín Cisneros | Claude (app de escritorio) | Claude Opus 5.5 (Anthropic) | Asistencia en la programación de la estructura en React y las secciones nuevas del TP2. También como guía para entender React |
 | Sebastián Sarango | Antigravity (Google DeepMind) | Claude Sonnet 4.5 | Generación del componente interactivo `SkillBars`, resolución de errores de compatibilidad de dependencias y ajustes de CSS en el sidebar |
 | Valentina Sánchez | Claude Code (app de escritorio) | Claude Opus 5.5 (Anthropic) |  Utilizado para evaluar alternativas del rediseño de la cartelera. También para redactar parte del README y la entrada de la bitácora |
-| Celina Tarn | GitHub Copilot | GPT-6 Luna | Incorporación de soporte para inglés en la web. Estructurá para la interacción mini piano del perfil personal |
+| Celina Tarn | GitHub Copilot | GPT-6 Luna | Incorporación de soporte para inglés en la web. Estructura para la interacción mini piano del perfil personal |
 
 **Revisión propia:** cada sección se probó en el navegador en distintos tamaños de pantalla, se revisó que no hubiera errores en la consola y se ajustaron los contenidos y el diseño con criterio del equipo.
 
